@@ -1,0 +1,75 @@
+/* 메뉴바 */
+ul, li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: black;
+    display: inline;
+}
+/* 에브리데이터 로고, 메뉴바 하이퍼링크 */
+a{
+    color: inherit;
+    text-decoration: none;
+}
+/* 메뉴바 글자 올라가면 밑줄 스타일 */
+a:hover{
+    text-decoration: underline;
+}
+/* 강의추천 기본 텍스트박스 */
+.block{
+    /* 내용 박스 디자인(색, 모양 등) */
+    background-color: white;
+    border: 3px solid rgb(233,247,246);
+    box-shadow: 1px 3px 3px 3px rgb(200, 200, 200);
+    border-radius: 5px;
+
+    align-self: center;
+    width: 1000px;
+    height: 800px;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    margin: 50px 0px 0px -200px;
+    padding: 0px;
+}
+/* 에브리데이터 로고 */
+img{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* 남서린, 강의추천 글자 */
+strong{
+    color:rgb(64, 156, 236);
+}
+/* 상단 안내글자(강의추천, 교양만 추천) 문구 */
+.classBox>p{
+    padding: 20px;
+    background-color: rgb(233,247,246);
+}
+/* 강의추천 메인박스 */
+.classBox{
+    margin-top: 0px;
+}
+/* 설문지 내 글자 리스트 */
+div>ol>li{
+    font-size: 20px;
+}
+/* 요일 버튼 */
+.classDay>li{
+    margin: 30px;
+}
+/* 통교, 기교 등 */
+span>li{
+    color:rgb(32, 136, 227);
+}
+/* 강의추천받기 버튼 */
+.recommendSubmit{
+    align-self: center;
+    position: absolute;
+    width: 300px;
+    height: 80px;
+    font-size: 30px;
+    left: 35%;
+    top: 85%;
+}
