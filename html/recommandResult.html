@@ -1,0 +1,137 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /* 메뉴바 */
+            ul, li{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                color: black;
+                display: inline;
+            }
+            /* 에브리데이터 로고, 메뉴바 하이퍼링크 */
+            a{
+                color: inherit;
+                text-decoration: none;
+            }
+            /* 메뉴바 글자 올라가면 밑줄 스타일 */
+            a:hover{
+                text-decoration: underline;
+            }
+            .block{
+                /* 내용 박스 디자인(색, 모양 등) */
+                background-color: white;
+                border: 3px solid rgb(233,247,246);
+                box-shadow: 1px 3px 3px 3px rgb(200, 200, 200);
+                border-radius: 5px;
+
+                align-self: center;
+                width: 1000px;
+                height: 800px;
+                position: absolute;
+                top: 10%;
+                left: 30%;
+                margin: 50px 0px 0px -200px;
+                padding: 0px;
+            }
+            strong{
+                color:rgb(64, 156, 236);
+            }
+            .classBox>p{
+                background-color: rgb(233,247,246);
+                padding: 20px;
+            }
+            .timeTable{
+                position: absolute;
+                width: 400px;
+                height: 500px;
+                background-color: pink;
+                top: 20%;
+                left: 5%;
+
+            }
+            .recommendList{
+                position: absolute;
+                width: 400px;
+                height: 500px;
+                border: 1px dotted black;
+                top: 20%;
+                right: 5%;
+                overflow: scroll;
+            }
+            .recommendedClass{
+                margin: 10px;
+                background-color: rgb(198, 246, 255);
+                border: 2px solid rgb(64, 156, 236);
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .reRecommend{
+                align-self: center;
+                position: absolute;
+                width: 300px;
+                height: 80px;
+                font-size: 30px;
+                left: 10%;
+                top: 85%;
+            }
+            .addInTimeTable{
+                align-self: center;
+                position: absolute;
+                width: 300px;
+                height: 80px;
+                font-size: 30px;
+                right: 10%;
+                top: 85%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 메뉴바 -->
+        <nav class="menu">
+            <ul>  
+                <li><a href="#">학점관리</a></li>
+                <li><a href="#">대학정보</a></li>
+                <li><a href="#">강의</a></li>
+                <li><a href="#"><img src="everydata_logo.png" height="100" width="100"></a></li>
+            </ul>
+        </nav>
+        <div class="block">
+            <div class="classBox">
+                <p><strong>남서린</strong>님을 위한 강의 추천을 받아보세요!
+                <strong>교양 교과목</strong>만 추천됩니다.</p>
+            </div>
+            <br>
+            <p style="text-align: center;"><strong>에브리데이터</strong>가 이 강의를 추천했어요!</p>
+            <br>
+            <div class="timeTable">시간표</div>
+            <div class="recommendList">
+                <div class="recommendedClass">
+                    <label><input type="checkbox" name="recommendedClassName"> 환경과 오염</label>
+                    <p>교수: 김둘선</p>
+                    <p>구분: 균형교양(통합교양) - 5영역(과학과 기술)</p>
+                    <p>시간: 월 1,2</p>
+                    <p>강의실: 024-0260</p>
+                </div>
+                <div class="recommendedClass">
+                    <label><input type="checkbox" name="recommendedClassName"> 환경과 오염</label>
+                    <p>교수: 김둘선</p>
+                    <p>구분: 균형교양(통합교양) - 5영역(과학과 기술)</p>
+                    <p>시간: 월 1,2</p>
+                    <p>강의실: 024-0260</p>
+                </div>
+                <div class="recommendedClass">
+                    <label><input type="checkbox" name="recommendedClassName"> 환경과 오염</label>
+                    <p>교수: 김둘선</p>
+                    <p>구분: 균형교양(통합교양) - 5영역(과학과 기술)</p>
+                    <p>시간: 월 1,2</p>
+                    <p>강의실: 024-0260</p>
+                </div>
+            </div>
+            <input type="submit" value="다시 추천 받기" class="reRecommend">
+            <input type="submit" value="시간표에 추가" class="addInTimeTable">
+        </div>
+        
+    </body>
+</html>
