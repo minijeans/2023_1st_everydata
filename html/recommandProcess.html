@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="../css/recommandProcess.css">
+        <script type="text/javascript" src="../js/recommandProcess.js"></script>
+        <title>에브리데이터</title>
+    </head>
+    <body>
+        <!-- 메뉴바 -->
+        <nav class="menu">
+            <ul>  
+                <li><a href="#">학점관리</a></li>
+                <li><a href="#">대학정보</a></li>
+                <li><a href="#">강의</a></li>
+                <li><a href="#"><img src="everydata_logo.png" height="100" width="100"></a></li>
+            </ul>
+        </nav>
+        <!-- 강의추천 - 과정 -->
+        <div class="block">
+            <div class="classBox">
+                <p><strong>남서린</strong>님을 위한 강의 추천을 받아보세요!
+                <strong>교양 교과목</strong>만 추천됩니다.</p>
+            </div>
+                <ol>
+                    <li>1. 원하는 공강 요일을 선택해주세요.<br><br>
+                        <ul class="classDay">
+                            <li><label><input type="radio" name="day" value="mon"> 월</label></li>
+                            <li><label><input type="radio" name="day" value="tue"> 화</label></li>
+                            <li><label><input type="radio" name="day" value="wed"> 수</label></li>
+                            <li><label><input type="radio" name="day" value="thr"> 목</label></li>
+                            <li><label><input type="radio" name="day" value="fri"> 금</label></li>
+                            <li><label><input type="radio" name="day" value="sat"> 토</label></li>
+                        </ul>
+                    </li>
+                    <br>
+                    <br>
+                    <hr align="left" style="border: solid 1px rgb(125, 208, 220); width:95%">
+                    <br>
+                    <li>2. 강의 추천으로 채우고 싶은 학점을 입력해주세요.<br><br>
+                        <input type="text" placeholder="ex> 5"> 학점
+                    </li>
+                    <br>
+                    <br>
+                    <hr align="left" style="border: solid 1px rgb(125, 208, 220); width:95%">
+                    <br>
+                    <li>3. 선호하는 과목의 영역을 선택해주세요. (복수선택)<br><br>
+                        <ul>
+                            <span style="display: inline-block;">
+                                <li>균형교양(통합교양)<br>
+                                    <ul>
+                                        <li><label><input type="checkbox" name="bClass"> 1영역(문학과 문화)</label></li><br>
+                                        <li><label><input type="checkbox" name="bClass"> 2영역(역사와 철학)</label></li><br>
+                                        <li><label><input type="checkbox" name="bClass"> 3영역(인간과 사회)</label></li><br>
+                                        <li><label><input type="checkbox" name="bClass"> 4영역(생명과 환경)</label></li><br>
+                                        <li><label><input type="checkbox" name="bClass"> 5영역(과학과 기술)</label></li><br>
+                                        <li><label><input type="checkbox" name="bClass"> 6영역(예술과 체육)</label></li><br>
+                                        <li><label><input type="checkbox" name="bClass"> 7영역(융복합 영역)</label></li><br>
+                                        <li><label><input type="checkbox" name="bClass"> 8영역(진로와 개척)</label></li><br>
+                                    </ul>
+                                </li>
+                            </span>
+                            <span style="display: inline-block;">
+                                <li>핵심교양(역량교양)<br>
+                                    <ul>
+                                        <li><label><input type="checkbox" name="cClass"> 영어</label></li><br>
+                                        <li><label><input type="checkbox" name="cClass"> 글쓰기</label></li><br>
+                                        <li><label><input type="checkbox" name="cClass"> 디지털 리터러시</label></li><br>
+                                    </ul>
+                                </li>
+                            </span>
+                            <span style="display: inline-block;">
+                                <li>기초교양</li><br>
+                                    <ul>
+                                        <li><label><input type="checkbox" name="rClass"> 외국어 영역</label></li><br>
+                                        <li><label><input type="checkbox" name="rClass"> 인문사회 영역</label></li><br>
+                                        <li><label><input type="checkbox" name="rClass"> 자연계열 영역</label></li><br>
+                                    </ul>
+                                </li>
+                            </span>
+                        </ul>
+                    </li><br>
+                </ol>
+            <input type="submit" value="강의 추천 받기" class="recommendSubmit">
+        </div>
+        
+    </body>
+</html>
