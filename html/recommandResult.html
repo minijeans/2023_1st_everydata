@@ -1,103 +1,38 @@
-<DOCTYPE html>
-    <!-- 남서린 작성 -->
-<html>
+<!-- 남서린 작성 -->
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <style>
-            /* 메뉴바 */
-            ul, li{
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                color: black;
-                display: inline;
-            }
-            /* 에브리데이터 로고, 메뉴바 하이퍼링크 */
-            a{
-                color: inherit;
-                text-decoration: none;
-            }
-            /* 메뉴바 글자 올라가면 밑줄 스타일 */
-            a:hover{
-                text-decoration: underline;
-            }
-            .block{
-                /* 내용 박스 디자인(색, 모양 등) */
-                background-color: white;
-                border: 3px solid rgb(233,247,246);
-                box-shadow: 1px 3px 3px 3px rgb(200, 200, 200);
-                border-radius: 5px;
-
-                align-self: center;
-                width: 1000px;
-                height: 800px;
-                position: absolute;
-                top: 10%;
-                left: 30%;
-                margin: 50px 0px 0px -200px;
-                padding: 0px;
-            }
-            strong{
-                color:rgb(64, 156, 236);
-            }
-            .classBox>p{
-                background-color: rgb(233,247,246);
-                padding: 20px;
-            }
-            .timeTable{
-                position: absolute;
-                width: 400px;
-                height: 500px;
-                background-color: pink;
-                top: 20%;
-                left: 5%;
-
-            }
-            .recommendList{
-                position: absolute;
-                width: 400px;
-                height: 500px;
-                border: 1px dotted black;
-                top: 20%;
-                right: 5%;
-                overflow: scroll;
-            }
-            .recommendedClass{
-                margin: 10px;
-                background-color: rgb(198, 246, 255);
-                border: 2px solid rgb(64, 156, 236);
-                padding: 10px;
-                border-radius: 10px;
-            }
-            .reRecommend{
-                align-self: center;
-                position: absolute;
-                width: 300px;
-                height: 80px;
-                font-size: 30px;
-                left: 10%;
-                top: 85%;
-            }
-            .addInTimeTable{
-                align-self: center;
-                position: absolute;
-                width: 300px;
-                height: 80px;
-                font-size: 30px;
-                right: 10%;
-                top: 85%;
-            }
-        </style>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link type="text/css" rel="stylesheet" href="../css/recommandResult.css">
+        <script type="text/javascript" src="../js/main.js"></script>
+        <title>에브리데이터</title>
     </head>
     <body>
-        <!-- 메뉴바 -->
-        <nav class="menu">
-            <ul>  
-                <li><a href="#">학점관리</a></li>
-                <li><a href="#">대학정보</a></li>
-                <li><a href="#">강의</a></li>
-                <li><a href="#"><img src="../img/everydata_logo.png" height="100" width="100"></a></li>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#">학점 관리</a></li>
+                    <li><a href="#">대학 정보</a></li>
+                    <li>
+                        <a>강의</a>
+                        <ul id="nav-menu_sub">
+                            <li><a href="#">강의 목록</a></li>
+                            <li><a href="#">강의 추천</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div id="nav-logo">
+                    <img id="nav-logo_img" src="../img/logo-green.png" alt="메인로고" height="30">
+                    <a href="main.html">
+                        <span>EVERY</span><span class="nav-logo_data">DATA</span>
+                    </a>
+                </div>
+                <button id="nav-logout_button" type="button" onclick="">로그아웃</button>
+            </nav>
+        </header>
+        
         <div class="block">
             <div class="classBox">
                 <p><strong>남서린</strong>님을 위한 강의 추천을 받아보세요!
