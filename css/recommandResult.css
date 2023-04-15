@@ -148,18 +148,16 @@ main{
     align-self: center;
     width: 1000px;
     height: 800px;
-    position: absolute;
-    top: 10%;
-    left: 30%;
-    margin: 50px 0px 0px -200px;
-    padding: 0px;
+    /* margin설정하니까 페이지 가운데로 자동정렬되네요! */
+    margin: 0 auto;
 }
 strong{
-    color:rgb(64, 156, 236);
+    color: #40BBCA;
 }
 .classBox>p{
     background-color: rgb(233,247,246);
-    padding: 20px;
+    padding: 10px;
+    margin: 0 auto;
 }
 .timeTable{
     position: absolute;
