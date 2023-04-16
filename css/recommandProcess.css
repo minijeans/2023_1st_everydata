@@ -149,12 +149,9 @@ main{
 
     align-self: center;
     width: 1000px;
-    height: 800px;
-    position: absolute;
-    top: 10%;
-    left: 30%;
-    margin: 50px 0px 0px -200px;
-    padding: 0px;
+    height: 700px;
+    /* margin설정하니까 페이지 가운데로 자동정렬되네요! */
+    margin: 0 auto;
 }
 /* 에브리데이터 로고 */
 img{
@@ -164,16 +161,13 @@ img{
 }
 /* 남서린, 강의추천 글자 */
 strong{
-    color:rgb(64, 156, 236);
+    color: #40BBCA;
 }
 /* 상단 안내글자(강의추천, 교양만 추천) 문구 */
 .classBox>p{
-    padding: 20px;
+    padding: 10px;
     background-color: rgb(233,247,246);
-}
-/* 강의추천 메인박스 */
-.classBox{
-    margin-top: 0px;
+    margin: 0 auto;
 }
 /* 설문지 내 글자 리스트 */
 div>ol>li{
@@ -181,19 +175,37 @@ div>ol>li{
 }
 /* 요일 버튼 */
 .classDay>li{
-    margin: 30px;
-}
-/* 통교, 기교 등 */
-span>li{
-    color:rgb(32, 136, 227);
+    margin-right: 70px;
+    float: left;
 }
 /* 강의추천받기 버튼 */
 .recommendSubmit{
-    align-self: center;
-    position: absolute;
     width: 300px;
     height: 80px;
     font-size: 30px;
-    left: 35%;
-    top: 85%;
+    margin: 30px auto;
+    display: block;
+    background-color: #62D3DA;
+    border-radius: 10px;
+    color: white;
+    border: white;
+}
+/* 추천학점 입력 */
+#div-fill_credit{
+    height: 30px;
+    width: 100px;
+    margin-left: 50px;
+    font-size: 20px;
+}
+
+/* 3번 문항 */
+table{
+    border-spacing: 10px;
+    margin-left: 50px;
+}
+tr>th{
+    color:#40BBCA;
+}
+td{
+    width: 300px;
 }
