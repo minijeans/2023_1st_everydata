@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <link type="text/css" rel="stylesheet" href="../css/recommandResult.css">
+        <link type="text/css" rel="stylesheet" href="../css/recommendResult.css">
         <script type="text/javascript" src="../js/main.js"></script>
         <title>에브리데이터</title>
     </head>
@@ -32,41 +32,41 @@
                 <button id="nav-logout_button" type="button" onclick="">로그아웃</button>
             </nav>
         </header>
-        
-        <div class="block">
-            <div class="classBox">
+        <!-- 강의추천 - 과정 -->
+        <section id="section-block">
+            <div id="section-class_box">
                 <p><strong>남서린</strong>님을 위한 강의 추천을 받아보세요!
                 *<strong>교양 교과목</strong>만 추천됩니다.</p>
             </div>
             <br>
             <p style="text-align: center;"><strong>에브리데이터</strong>가 이 강의를 추천했어요!</p>
             <br>
-            <div class="timeTable">시간표</div>
-            <div class="recommendList">
-                <div class="recommendedClass">
-                    <label><input type="checkbox" name="recommendedClassName"> 환경과 오염</label>
+            <div id="section-time_table">시간표</div>
+            <div id="section-recommend_list">
+                <div id="div-recommended_class">
+                    <label><input type="checkbox" name="recommendedClassName"> <strong>환경과 오염</strong></label>
                     <p>교수: 김둘선</p>
                     <p>구분: 균형교양(통합교양) - 5영역(과학과 기술)</p>
                     <p>시간: 월 1,2</p>
                     <p>강의실: 024-0260</p>
                 </div>
-                <div class="recommendedClass">
-                    <label><input type="checkbox" name="recommendedClassName"> 환경과 오염</label>
+                <div id="div-recommended_class">
+                    <label><input type="checkbox" name="recommendedClassName"> <strong>환경과 오염</strong></label>
                     <p>교수: 김둘선</p>
                     <p>구분: 균형교양(통합교양) - 5영역(과학과 기술)</p>
                     <p>시간: 월 1,2</p>
                     <p>강의실: 024-0260</p>
                 </div>
-                <div class="recommendedClass">
-                    <label><input type="checkbox" name="recommendedClassName"> 환경과 오염</label>
+                <div id="div-recommended_class">
+                    <label><input type="checkbox" name="recommendedClassName"> <strong>환경과 오염</strong></label>
                     <p>교수: 김둘선</p>
                     <p>구분: 균형교양(통합교양) - 5영역(과학과 기술)</p>
                     <p>시간: 월 1,2</p>
                     <p>강의실: 024-0260</p>
                 </div>
             </div>
-            <input type="submit" value="다시 추천 받기" class="reRecommend">
-            <input type="submit" value="시간표에 추가" class="addInTimeTable">
-        </div> 
+        </section>
+        <input type="submit" value="다시 추천 받기" id="section-re_recommend">
+        <input type="submit" value="시간표에 추가" id="section-add_in_time_table">
     </body>
 </html>

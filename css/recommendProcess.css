@@ -138,9 +138,9 @@ main{
     font-weight: 500;
     color: #40BBCA;
 }
-/* 남서린 작성 */
+/* 남서린 작성---------------------------------------------------------------------------------------- */
 /* 강의추천 기본 텍스트박스 */
-.block{
+#section-block{
     /* 내용 박스 디자인(색, 모양 등) */
     background-color: white;
     border: 3px solid rgb(233,247,246);
@@ -153,20 +153,12 @@ main{
     /* margin설정하니까 페이지 가운데로 자동정렬되네요! */
     margin: 0 auto;
 }
-/* 에브리데이터 로고 */
-img{
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-}
-/* 남서린, 강의추천 글자 */
 strong{
     color: #40BBCA;
 }
-/* 상단 안내글자(강의추천, 교양만 추천) 문구 */
-.classBox>p{
-    padding: 10px;
+#div-class_box>p{
     background-color: rgb(233,247,246);
+    padding: 10px;
     margin: 0 auto;
 }
 /* 설문지 내 글자 리스트 */
@@ -174,12 +166,12 @@ div>ol>li{
     font-size: 20px;
 }
 /* 요일 버튼 */
-.classDay>li{
+#section-class_day>li{
     margin-right: 70px;
     float: left;
 }
 /* 강의추천받기 버튼 */
-.recommendSubmit{
+#input-recommend_submit{
     width: 300px;
     height: 80px;
     font-size: 30px;
@@ -203,6 +195,7 @@ table{
     border-spacing: 10px;
     margin-left: 50px;
 }
+/* 3번문항-교양 영역 */
 tr>th{
     color:#40BBCA;
 }

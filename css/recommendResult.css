@@ -1,14 +1,16 @@
 /*--이지민 작성--*/
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-/* 메뉴바 */
+
 body{
     margin: 0;
     background-color: #fcfcfc;
 }
+
 a{
     text-decoration: none;
     color: #40BBCA;
 }
+
 li{
     list-style: none;
 }
@@ -136,9 +138,9 @@ main{
     font-weight: 500;
     color: #40BBCA;
 }
-
-/* 남서린 작성 */
-.block{
+/* 남서린 작성---------------------------------------------------------------------------------------- */
+/* 강의추천 기본 텍스트박스 */
+#section-block{
     /* 내용 박스 디자인(색, 모양 등) */
     background-color: white;
     border: 3px solid rgb(233,247,246);
@@ -147,58 +149,63 @@ main{
 
     align-self: center;
     width: 1000px;
-    height: 800px;
+    height: 700px;
     /* margin설정하니까 페이지 가운데로 자동정렬되네요! */
     margin: 0 auto;
 }
-strong{
+p>strong{
     color: #40BBCA;
 }
-.classBox>p{
+#section-class_box > p{
     background-color: rgb(233,247,246);
     padding: 10px;
     margin: 0 auto;
 }
-.timeTable{
-    position: absolute;
+#section-time_table{
+    display: inline-block;
+    float: left;
     width: 400px;
     height: 500px;
-    background-color: pink;
-    top: 20%;
-    left: 5%;
-
+    background-color: #f5f5f5;
+    margin-left: 50px;
 }
-.recommendList{
-    position: absolute;
+#section-recommend_list{
     width: 400px;
     height: 500px;
-    border: 1px dotted black;
-    top: 20%;
-    right: 5%;
     overflow: scroll;
+    display: inline-block;
+    float: right;
+    margin-right: 50px;
 }
-.recommendedClass{
+#div-recommended_class{
     margin: 10px;
-    background-color: rgb(198, 246, 255);
-    border: 2px solid rgb(64, 156, 236);
+    background-color: #E9F7F6;
+    border: 2px solid #62D3DA;
     padding: 10px;
     border-radius: 10px;
 }
-.reRecommend{
-    align-self: center;
-    position: absolute;
+#section-re_recommend{
     width: 300px;
     height: 80px;
     font-size: 30px;
-    left: 10%;
-    top: 85%;
+    margin: 30px auto;
+    display: block;
+    background-color: #62D3DA;
+    border-radius: 10px;
+    color: white;
+    border: white;
 }
-.addInTimeTable{
-    align-self: center;
-    position: absolute;
+#section-add_in_time_table{
     width: 300px;
     height: 80px;
     font-size: 30px;
-    right: 10%;
-    top: 85%;
+    margin: 30px auto;
+    display: block;
+    background-color: #62D3DA;
+    border-radius: 10px;
+    color: white;
+    border: white;
+}
+#recommendedClassName>strong{
+    color: black;
 }
