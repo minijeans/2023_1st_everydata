@@ -1,0 +1,105 @@
+<!--이지민 작성-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link type="text/css" rel="stylesheet" href="../css/signup.css">
+        <script type="text/javascript" src="../js/signup.js"></script>
+        <title>EVERYDATA</title>
+    </head>
+    <body>
+        <div class="signup-wrapper">
+            <h2>SIGN UP</h2>
+            <div>*은 필수항목입니다.</div>
+            <form method="post" id="signup-form">
+                <div><span>*</span>아이디</div>
+                <input type="text" name="userId" placeholder="아이디 입력(6~20자)">
+                <div><span>*</span>비밀번호</div>
+                <input type="password" name="userPassword" placeholder="비밀번호 입력(6~20자)">
+                <div><span>*</span>비밀번호 확인</div>
+                <input type="password" name="userPassword_check" placeholder="비밀번호 재입력">
+                <div><span>*</span>이름</div>
+                <input type="text" name="name" placeholder="이름">
+                <div><span>*</span>학번</div>
+                <input type="text" name="academicNumber" placeholder="학번">
+                <div id="signup-threebox">
+                    <div>
+                        <div><span>*</span>상태</div>
+                        <select name="status">
+                            <option value="재학">재학</option>
+                            <option value="휴학">휴학</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div><span>*</span>교과적용년도</div>
+                        <select name="curriculumYear">
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div><span>*</span>학년</div>
+                        <select name="grade">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div><span>*</span>학과</div>
+                <select name="major">
+                    <option value="생명과학부">생명과학부</option>
+                    <option value="물리학과">물리학과</option>
+                    <option value="수학과">수학과</option>
+                    <option value="식품영양학과">식품영양학과</option>
+                    <option value="의류학과">의류학과</option>
+                    <option value="정보통계학과">정보통계학과</option>
+                    <option value="지질과학과">지질과학과</option>
+                    <option value="화학과">화학과</option>
+                    <option value="컴퓨터과학과">컴퓨터과학과</option>
+                </select>
+                <div>복수전공</div>
+                <select name="doubleMajor">
+                    <option value="생명과학부">생명과학부</option>
+                    <option value="물리학과">물리학과</option>
+                    <option value="수학과">수학과</option>
+                    <option value="식품영양학과">식품영양학과</option>
+                    <option value="의류학과">의류학과</option>
+                    <option value="정보통계학과">정보통계학과</option>
+                    <option value="지질과학과">지질과학과</option>
+                    <option value="화학과">화학과</option>
+                    <option value="컴퓨터과학과">컴퓨터과학과</option>
+                </select>
+                <div>부전공</div>
+                <select name="minor">
+                    <option value="생명과학부">생명과학부</option>
+                    <option value="물리학과">물리학과</option>
+                    <option value="수학과">수학과</option>
+                    <option value="식품영양학과">식품영양학과</option>
+                    <option value="의류학과">의류학과</option>
+                    <option value="정보통계학과">정보통계학과</option>
+                    <option value="지질과학과">지질과학과</option>
+                    <option value="화학과">화학과</option>
+                    <option value="컴퓨터과학과">컴퓨터과학과</option>
+                </select>
+                <div>이수내역확인표 PDF</div>
+                <div id="filebox">
+                    <label for="file">이수내역확인표 추가</label>
+                    <input type="file" id="file">
+                </div>
+                <div id="completionSheet-freshman">1-1 신입생의 경우 이수내역확인표는 추가하지 않아도 됩니다.</div>
+                <input type="submit" value="회원가입">
+            </form>
+        </div>
+    </body>
+</html>
