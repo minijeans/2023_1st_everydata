@@ -1,16 +1,13 @@
-/*--이지민 작성--*/
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 body{
     margin: 0;
     background-color: #fcfcfc;
 }
-
 a{
     text-decoration: none;
     color: #40BBCA;
 }
-
 li{
     list-style: none;
 }
@@ -23,6 +20,8 @@ nav{
     padding: 15px 15px;
     background-color: #FFFFFF;
     box-shadow: 0px 5px 6px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
 }
 #nav-menu{
     display: flex;
@@ -65,6 +64,10 @@ nav{
     padding-left: 0;
     font-family: Bebas Neue;
     font-size: 40px;
+    align-items: center;
+    left: 50%;
+    padding-left: 100px;
+    padding-right: 250px;
 }
 .nav-logo_data{
     color: #94D4D8;
@@ -82,6 +85,64 @@ nav{
     color: #40BBCA;
 }
 
+#main-decoration {
+    z-index: 1;
+}
+#decoration-logo_box {
+    top: 65%;
+    margin-left: -280px;
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+}
+#decoration-logo {
+    opacity: 0.2;
+    width: 600px;
+}
+#decoration-rectangles {
+    position: absolute;
+    top: 20%;
+    right: 0%;
+}
+#decoration-rectangles > div {
+    background-color: #E9F7F6;
+    height: 25px;
+    margin-top: 20px;
+}
+#decoration-circle_box {
+    position: absolute;
+    top: 75%;
+    right: 0%;
+    width: 280px;
+    height: 300px;
+    overflow: hidden;
+}
+#decoration-circle_big {
+    box-sizing: border-box;
+    width: 500px;
+    height: 500px;
+    border-radius: 100%;
+    border: 80px solid #E9F7F6;
+}
+#decoration-circle_left {
+    position: absolute;
+    background-color: #E9F7F6;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    left: 180px;
+    top: 55%;
+}
+#decoration-circle_right {
+    position: absolute;
+    background-color: #E9F7F6;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    right: 11%;
+    top: 72%;
+}
 
 main{
     margin-top: 30px;
@@ -102,6 +163,7 @@ main{
     border: 2px solid #d3f0f0;
     border-radius: 10px;
     box-shadow: 0px 5px 6px rgba(0,0,0,0.1);
+    z-index: 2;
 }
 .main-right{
     display: flex;
@@ -138,9 +200,10 @@ main{
     font-weight: 500;
     color: #40BBCA;
 }
-/* 남서린 작성 */
+
+/* 남서린 작성---------------------------------------------------------------------------------------- */
 /* 강의추천 기본 텍스트박스 */
-.block{
+#section-block{
     /* 내용 박스 디자인(색, 모양 등) */
     background-color: white;
     border: 3px solid rgb(233,247,246);
@@ -153,59 +216,71 @@ main{
     /* margin설정하니까 페이지 가운데로 자동정렬되네요! */
     margin: 0 auto;
 }
-/* 에브리데이터 로고 */
-img{
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-}
-/* 남서린, 강의추천 글자 */
 strong{
     color: #40BBCA;
 }
-/* 상단 안내글자(강의추천, 교양만 추천) 문구 */
-.classBox>p{
-    padding: 10px;
+#div-class_box>p{
     background-color: rgb(233,247,246);
+    padding: 10px;
     margin: 0 auto;
 }
-/* 설문지 내 글자 리스트 */
-div>ol>li{
-    font-size: 20px;
-}
-/* 요일 버튼 */
-.classDay>li{
-    margin-right: 70px;
-    float: left;
-}
-/* 강의추천받기 버튼 */
-.recommendSubmit{
-    width: 300px;
-    height: 80px;
-    font-size: 30px;
-    margin: 30px auto;
+#form-search{
+    width: 500px;
+    height: 10px;
+    margin: 10px auto;
     display: block;
-    background-color: #62D3DA;
-    border-radius: 10px;
-    color: white;
-    border: white;
-}
-/* 추천학점 입력 */
-#div-fill_credit{
-    height: 30px;
-    width: 100px;
-    margin-left: 50px;
+    padding: 20px;
     font-size: 20px;
+    background-color: #FFFFFF;
+    border: 2px solid #62D3DA;
+    border-radius: 10px;
 }
-
-/* 3번 문항 */
-table{
+#section-class_category{
+    width: 90%;
+    height: 20%;
+    background-color: #FFFFFF;
+    border: 1px solid #62D3DA;
+    border-radius: 10px;
+    margin: 0px auto;
+}
+#div-class_category_table{
+    height: 100%;
     border-spacing: 10px;
-    margin-left: 50px;
 }
-tr>th{
-    color:#40BBCA;
+#div-class_category_table button{
+    background-color: #FFFFFF;
+    border: 1px solid #62D3DA;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
 }
-td{
-    width: 300px;
+#div-class_category_table button:hover{
+    background-color: #40BBCA;
+    color: white;
+}
+#div-class_category_table select{
+    width: 60%;
+    font-size: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #D0D0D0;
+    border-radius: 5px;
+    padding: 1px;
+    text-align: center;
+
+}
+#div-class_category_table optgroup{
+    font-size: 15px;
+    text-align: left;
+}
+#section-class_list{
+    width: 95%;
+    height: 20%;
+    background-color: #FFFFFF;
+    border: 1px solid #62D3DA;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+#div-class_list_table{
+    width: 100%;
+    text-align: center;
 }

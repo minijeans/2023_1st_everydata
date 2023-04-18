@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <link type="text/css" rel="stylesheet" href="../css/recommandProcess.css">
+        <link type="text/css" rel="stylesheet" href="../css/recommendProcess.css">
         <script type="text/javascript" src="../js/main.js"></script>
         <title>에브리데이터</title>
     </head>
@@ -16,7 +16,7 @@
                     <li><a href="#">학점 관리</a></li>
                     <li><a href="#">대학 정보</a></li>
                     <li>
-                        <a>강의</a>
+                        <a style="color: black;">강의</a>
                         <ul id="nav-menu_sub">
                             <li><a href="#">강의 목록</a></li>
                             <li><a href="#">강의 추천</a></li>
@@ -33,14 +33,14 @@
             </nav>
         </header>
         <!-- 강의추천 - 과정 -->
-        <section class="block">
-            <div class="classBox">
+        <section id="section-block">
+            <div id="div-class_box">
                 <p><strong>남서린</strong>님을 위한 강의 추천을 받아보세요!
                 *<strong>교양 교과목</strong>만 추천됩니다.</p>
             </div>
                 <ol>
                     <li>1. 원하는 공강 요일을 선택해주세요.<br><br>
-                        <ul class="classDay">
+                        <ul id="section-class_day">
                             <li><label><input type="radio" name="day" value="mon"> 월</label></li>
                             <li><label><input type="radio" name="day" value="tue"> 화</label></li>
                             <li><label><input type="radio" name="day" value="wed"> 수</label></li>
@@ -111,7 +111,7 @@
                     </li><br>
                 </ol>
         </section>
-        <input type="submit" value="강의 추천 받기" class="recommendSubmit">
+        <input type="submit" value="강의 추천 받기" id="input-recommend_submit">
         
     </body>
 </html>
