@@ -224,44 +224,40 @@ strong{
     padding: 10px;
     margin: 0 auto;
 }
-/* 설문지 내 글자 리스트 */
-div>ol>li{
+#section-left_credit_until_graduate{
+    width: 95%;
+    background-color: #FFFFFF;
+    border: 2px solid #62D3DA;
+    border-radius: 10px;
+    margin: 30px auto;
+}
+#section-left_credit_until_graduate > p{
+    margin-left: 30px;
+}
+#div-left_credit_until_graduate_table{
+    width: 90%;
+    text-align: center;
+    margin: 10px auto;
+}
+#section-origin_table{
+    float: right;
+    margin-right: 20px;
+    margin-top: -10px;
+}
+#section-opened_major_in_semester{
+    margin: 50px auto;
+
+}
+#section-opened_major_in_semester>p{
+    margin-left: 20px;
     font-size: 20px;
 }
-/* 요일 버튼 */
-#section-class_day>li{
-    margin-right: 70px;
-    float: left;
-}
-/* 강의추천받기 버튼 */
-#input-recommend_submit{
-    width: 300px;
-    height: 80px;
-    font-size: 30px;
-    margin: 30px auto;
-    display: block;
+#section-opened_major_in_semester button{
     background-color: #62D3DA;
     border-radius: 10px;
     color: white;
     border: white;
-}
-/* 추천학점 입력 */
-#div-fill_credit{
-    height: 30px;
-    width: 100px;
-    margin-left: 50px;
-    font-size: 20px;
-}
-
-/* 3번 문항 */
-table{
-    border-spacing: 10px;
-    margin-left: 50px;
-}
-/* 3번문항-교양 영역 */
-tr>th{
-    color:#40BBCA;
-}
-td{
-    width: 300px;
+    padding: 8px;
+    float: right;
+    margin-right: 20px;
 }

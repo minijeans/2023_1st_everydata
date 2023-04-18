@@ -1,0 +1,123 @@
+<!-- 남서린 작성 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link type="text/css" rel="stylesheet" href="../css/manageCredit.css">
+        <script type="text/javascript" src="../js/main.js"></script>
+        <title>에브리데이터</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#">학점 관리</a></li>
+                    <li><a href="#">대학 정보</a></li>
+                    <li>
+                        <a style="color: black;">강의</a>
+                        <ul id="nav-menu_sub">
+                            <li><a href="#">강의 목록</a></li>
+                            <li><a href="#">강의 추천</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div id="nav-logo">
+                    <img id="nav-logo_img" src="../img/logo-green.png" alt="메인로고" height="30">
+                    <a href="main.html">
+                        <span>EVERY</span><span class="nav-logo_data">DATA</span>
+                    </a>
+                </div>
+                <button id="nav-logout_button" type="button" onclick="">로그아웃</button>
+            </nav>
+        </header>
+        <section id="section-block">
+            <div id="div-class_box">
+                <p><strong>남서린</strong>님의 이수내역</p>
+            </div>
+            <div id="section-left_credit_until_graduate">
+                <p><b>졸업까지 남은 학점은 ... </b></p>
+                <table id="div-left_credit_until_graduate_table" border="1">
+                    <tr>
+                        <td></td>
+                        <td colspan="4">교양</td>
+                        <td colspan="8">전공</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="4"></td>
+                        <td colspan="2">본전공</td>
+                        <td colspan="2">복수전공</td>
+                        <td colspan="2">부전공</td>
+                        <td>교직</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>핵심(역량)</td>
+                        <td>균형(통합)</td>
+                        <td>기초</td>
+                        <td>일반</td>
+                        <td>필수</td>
+                        <td>선택</td>
+                        <td>필수</td>
+                        <td>선택</td>
+                        <td>필수</td>
+                        <td>선택</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>소요</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>취득</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>잔여</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2"></td>
+                    </tr>
+                </table>
+                <p><strong>[균형교양은] -영역을 수강했습니다. 졸업 요건을 충족합니다.</strong></p>
+            </div>
+            <p><button id="section-origin_table">이수내역확인표 원본 보기</button></p>
+            <div id="section-opened_major_in_semester">
+                <p>
+                    <strong>2023-1학기에 개설된 전공</strong>
+                    <button>시간표에 추가</button>    
+                </p>
+            </div>
+        </section>
+    </body>
+</html>
