@@ -145,17 +145,32 @@ nav{
     top: 72%;
 }
 
+
+
 main{
-    margin-top: 30px;
     min-height: 830px;
 }
 .main-container{
-    width: 1060px;
+    width: 1000px;
     margin: auto;
     display: grid;
-    grid-template-columns: 660px 380px;
-    grid-template-rows: 800px;
+    grid-template-rows: 70px 330px 450px;
     gap: 10px;
+}
+.main-container h1 {
+    color: #40BBCA;
+}
+#main-top {
+    display: flex;
+    gap: 10px;
+}
+#main-top > div:first-child{
+    width: 100%;
+    flex: 2;
+}
+#main-top > div:last-child{
+    width: 100%;
+    flex: 3;
 }
 .main-section{
     width: 100%;
@@ -166,64 +181,6 @@ main{
     box-shadow: 0px 5px 6px rgba(0,0,0,0.1);
     z-index: 2;
 }
-.main-right{
-    display: flex;
-    flex-direction: column;
-    border: none;
-    gap: 10px;
-}
-.main-right > div:first-child{
-    width: 100%;
-    flex: 1;
-}
-.main-right > div:last-child{
-    width: 100%;
-    flex: 2;
-}
-#main-timetable_top{
-    display: flex;
-    margin-top: 15px;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 30px;
-    padding-right: 30px;
-
-    font-family: Montserrat;
-    font-weight: bold;
-    font-size: 24px;
-    color: #40BBCA;
-}
-#main-plus_button{
-    background-color: transparent;
-    border: 0px;
-
-    font-size: 52px;
-    font-weight: 500;
-    color: #40BBCA;
-}
-
-
-#main-timetable, th, td{
-    border: 1px solid #D9D9D9;
-    border-collapse: collapse;
-}
-#main-timetable th{
-    color: #A5A5A5;
-    font-family: Montserrat;
-    font-weight: lighter;
-    font-size: 14px;
-    vertical-align: top;
-}
-#main-timetable td{
-    width: 100px;
-    height: 70px;
-}
-#main-timetable{
-    margin: auto;
-    margin-top: 20px;
-}
-
-
 
 #main-profile_top {
     margin: 8px;
@@ -232,6 +189,7 @@ main{
     padding-top: 10px;
     padding-left: 10px;
     margin-bottom: 15px;
+    justify-content: center;
 }
 #profile-img_box {
     width: 55px;
@@ -261,7 +219,7 @@ main{
 .main-profile span {
     margin-left: 5px;
 }
-.main-profile a{
+#main-profile_top a{
     height: 18px;
     border-radius: 10px;
     border: 1px solid #40BBCA;
@@ -269,55 +227,66 @@ main{
     padding-left: 10px;
     padding-right: 10px;
     font-size: 13px;
-    margin-left: 20px;
+    margin-left: 50px;
     margin-right: 25px;
 }
 .main-profile div {
     background-color: #d3f0f0;
     padding: 3px;
-    margin: 9px;
+    margin: 8px;
     padding-left: 8px;
     padding-right: 8px;
     border-radius: 5px;
     font-weight: 500;
-    margin-left: 28px;
+    margin-left: 32px;
+}
+#main-profile_department {
+    display: grid;
+}
+#main-profile_department div{
+   width: 60px;
+   text-align: center;
+}
+#main-profile_department span {
+    display: flex;
+    align-items: center;
 }
 .main-profile, .main-profile th, .main-profile td {
     border: none;
 }
 
 
-.main-section > h2 {
+
+.main-section h2 {
     color: #40BBCA;
-    margin-left: 15px;
+    margin-left: 20px;
 }
-.shortcut-circle{
-    width: 92px;
-    height: 92px;
-    border: 1px solid #94D4D8;
-    border-radius: 90px;
-    text-align: center;
-    line-height: 102px;
-    margin-bottom: 7px;
+#subjects-completed_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-#main-shortcut {
-    display:grid;
-    text-align: center;
-    justify-content: space-around;
-    margin-bottom: 15px;
+#subjects-completed_top select {
+    margin-right: 20px;
+    width: 120px;
+    height: 30px;
+    border: 1px solid #A5A5A5;
+    border-radius: 5px;
 }
-#main-shortcut > div {
-    display:flex;
+
+.subjects-completed {
+    margin: auto;
 }
-#main-shortcut >div > a{
-    margin: 15px;
-    margin-left: 40px;
-    margin-right: 40px;
+
+.subjects-completed th{
+    background-color: #d3f0f0;
+    border-radius: 5px;
+    font-weight: 500;
+    width: 225px;
+    padding: 3px;
 }
-.shortcut-name{
-    color: #000000;
-    font-size: 14px;
-}
+
+
 
 
 footer {
@@ -327,7 +296,7 @@ footer {
     z-index: 2;
     background-color: #E8E8E8;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 40px;
     padding: 30px;
     padding-top: 20px;
     padding-bottom: 20px;

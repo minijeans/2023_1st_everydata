@@ -1,0 +1,130 @@
+<!--이지민 작성-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link type="text/css" rel="stylesheet" href="../css/mypage.css">
+        <script type="text/javascript" src="../js/mypage.js"></script>
+        <title>EVERYDATA</title>
+        <link rel="icon" sizes="192x192" href="../img/logo-green.png">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#">학점 관리</a></li>
+                    <li><a href="#">대학 정보</a></li>
+                    <li>
+                        <a>강의</a>
+                        <ul id="nav-menu_sub">
+                            <li><a href="#">강의 목록</a></li>
+                            <li><a href="./recommendProcess.html">강의 추천</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div id="nav-logo">
+                    <img id="nav-logo_img" src="../img/logo-green.png" alt="메인로고" height="30">
+                    <a href="main.html">
+                        <span>EVERY</span><span class="nav-logo_data">DATA</span>
+                    </a>
+                </div>
+                <button id="nav-logout_button" type="button" onclick="">로그아웃</button>
+            </nav>
+        </header>
+        <main>
+            <div id="main-decoration">
+                <diV id="decoration-logo_box">
+                    <img id="decoration-logo" src="../img/logo-green.png">
+                </diV>
+                <div id="decoration-rectangles">
+                    <div style="width: 100px;"></div>
+                    <div style="width: 100px;"></div>
+                    <div style="width: 75px;"></div>
+                </div>
+                <div id="decoration-circle_box">
+                    <div id="decoration-circle_big"></div>
+                </div>
+                <div id="decoration-circle_left"></div>
+                <div id="decoration-circle_right"></div>
+            </div>
+            <div class="main-container">
+                <h1>MY PAGE</h1>
+                <div id="main-top">
+                    <div class="main-section">
+                        <div id="main-profile_top">
+                            <div id="profile-img_box">
+                                <img id="profile-img" src="../img/profile-gnu.png">
+                            </div>
+                            <div id="profile-name">이지민</div>
+                            <a href="">회원정보 수정</a>
+                        </div>
+                        <table class="main-profile">
+                            <tr>
+                                <th><div>학과</div></th>
+                                <td>컴퓨터과학과</td>
+                                <th><div>상태</div></th>
+                                <td>학부생/재학</td>
+                            </tr>
+                            <tr>
+                                <th><div>학번</div></th>
+                                <td>2023000000</td>
+                                <th><div>학년</div></th>
+                                <td>3</td>
+                            </tr>
+                        </table>
+                        <table class="main-profile">
+                            <tr>
+                                <th><div>이수학점</div></th>
+                                <td><span>76</span><span>/</span><span>130</span></td>
+                                <th><div>교과적용</div></th>
+                                <td>2023</td>
+                            </tr>
+                        </table>
+                        <div class="main-profile" id="main-profile_department">
+                            <span>
+                                <div>부전공</div>
+                                <span>-</span>
+                            </span>
+                            <span>
+                                <div>복수전공</div>
+                                <span>-</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="main-section">
+                        <h2>나의 성적그래프</h2>
+                    </div>
+                </div>
+                <div class="main-section">
+                    <div id="subjects-completed_top">
+                        <h2>이수과목</h2>
+                        <select>
+                            <option>전체 학기</option>
+                            <option>2022-2</option>
+                        </select>
+                    </div>
+                    <table class="subjects-completed">
+                        <tr>
+                            <th>이수구분</th>
+                            <th>과목명</th>
+                            <th>학점</th>
+                            <th>성적</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div id="footer-left">
+                <div>2023 - 1 소프트웨어설계PBL : EVERYDATA</div>
+                <div>팀 오합지졸 - 남서린 | 민희진 | 이송하 | 이지민 | 훌랑</div>
+                <div>Copyright 2023. 오합지졸 All rights reserved.</div>
+            </div>
+            <div id="footer-right">
+                <img src="../img/logo-white.png" width="80">
+            </div>
+        </footer>
+    </body>
+</html>
