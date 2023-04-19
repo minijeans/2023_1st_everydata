@@ -4,6 +4,10 @@
 body{
     margin: 0;
     background-color: #fcfcfc;
+    background-image: url('../img/background-main.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 a{
     text-decoration: none;
@@ -68,7 +72,7 @@ nav{
     align-items: center;
     left: 50%;
     padding-left: 100px;
-    padding-right: 250px;
+    padding-right: 300px;
 }
 .nav-logo_data{
     color: #94D4D8;
@@ -85,7 +89,7 @@ nav{
     font-size: 14px;
     color: #40BBCA;
 }
-
+/*
 #main-decoration {
     z-index: 1;
 }
@@ -144,6 +148,7 @@ nav{
     right: 11%;
     top: 72%;
 }
+*/
 
 main{
     margin-top: 30px;
