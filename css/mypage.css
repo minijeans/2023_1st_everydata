@@ -1,9 +1,12 @@
 /*--이지민 작성--*/
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 body{
     margin: 0;
-    background-color: #fcfcfc;
+    background-image: url('../img/background-main.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
 }
 a{
     text-decoration: none;
@@ -27,7 +30,6 @@ nav{
 #nav-menu{
     display: flex;
     padding-left: 0;
-    font-family: Montserrat;
     font-size: 18px;
 }
 #nav-menu::after{
@@ -63,7 +65,7 @@ nav{
 }
 #nav-logo{
     padding-left: 0;
-    font-family: Bebas Neue;
+    font-family: 'Bebas Neue', cursive;
     font-size: 40px;
     align-items: center;
     left: 50%;
@@ -84,65 +86,6 @@ nav{
 
     font-size: 14px;
     color: #40BBCA;
-}
-
-#main-decoration {
-    z-index: 1;
-}
-#decoration-logo_box {
-    top: 65%;
-    margin-left: -280px;
-    position: absolute;
-    width: 600px;
-    height: 400px;
-    overflow: hidden;
-}
-#decoration-logo {
-    opacity: 0.2;
-    width: 600px;
-}
-#decoration-rectangles {
-    position: absolute;
-    top: 20%;
-    right: 0%;
-}
-#decoration-rectangles > div {
-    background-color: #E9F7F6;
-    height: 25px;
-    margin-top: 20px;
-}
-#decoration-circle_box {
-    position: absolute;
-    top: 75%;
-    right: 0%;
-    width: 280px;
-    height: 300px;
-    overflow: hidden;
-}
-#decoration-circle_big {
-    box-sizing: border-box;
-    width: 500px;
-    height: 500px;
-    border-radius: 100%;
-    border: 80px solid #E9F7F6;
-}
-#decoration-circle_left {
-    position: absolute;
-    background-color: #E9F7F6;
-    border-radius: 100%;
-    width: 45px;
-    height: 45px;
-    left: 180px;
-    top: 55%;
-}
-#decoration-circle_right {
-    position: absolute;
-    background-color: #E9F7F6;
-    border-radius: 100%;
-    width: 45px;
-    height: 45px;
-    right: 11%;
-    top: 72%;
 }
 
 

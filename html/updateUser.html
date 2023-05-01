@@ -1,34 +1,35 @@
 <!--이지민 작성-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <link type="text/css" rel="stylesheet" href="../css/signup.css">
-        <script type="text/javascript" src="../js/signup.js"></script>
+        <link type="text/css" rel="stylesheet" href="../css/updateUser.css">
+        <script type="text/javascript" src="../js/updateUser.js"></script>
         <title>EVERYDATA</title>
         <link rel="icon" sizes="192x192" href="../img/logo-green.png">
     </head>
     <body>
-        <div class="signup-wrapper">
-            <h2>SIGN UP</h2>
+        <div class="update-wrapper">
+            <h2>회원정보 수정</h2>
             <div>*은 필수항목입니다.</div>
-            <form method="post" id="signup-form">
+            <form method="post" id="update-form" action="upload" enctype="multipart/form-data">
                 <div><span>*</span>아이디</div>
-                <input type="text" name="userId" placeholder="아이디 입력(6~20자)">
+                <input type="text" name="userId" placeholder="아이디 입력(6~20자)" maxlength="20" value="<%=user.getUserID()%>" readonly>
                 <div><span>*</span>비밀번호</div>
-                <input type="password" name="userPassword" placeholder="비밀번호 입력(6~20자)">
+                <input type="password" name="userPassword" placeholder="비밀번호 입력(6~20자)" maxlength="20" value="<%=user.getUserPassword()%>">
                 <div><span>*</span>비밀번호 확인</div>
-                <input type="password" name="userPassword_check" placeholder="비밀번호 재입력">
+                <input type="password" name="userPassword_check" placeholder="비밀번호 재입력" maxlength="20" value="<%=user.getUserPassword()%>">
                 <div><span>*</span>이름</div>
-                <input type="text" name="name" placeholder="이름">
+                <input type="text" name="name" placeholder="이름" value="<%=user.getUserName()%>">
                 <div><span>*</span>학번</div>
-                <input type="text" name="academicNumber" placeholder="학번">
-                <div id="signup-threebox">
+                <input type="text" name="academicNumber" placeholder="학번" value="<%=user.getUserAcademicNumber()%>">
+                <div id="update-threebox">
                     <div>
                         <div><span>*</span>상태</div>
                         <select name="status">
+                            <option selected disabled>선택</option>
                             <option value="재학">재학</option>
                             <option value="휴학">휴학</option>
                         </select>
@@ -36,6 +37,7 @@
                     <div>
                         <div><span>*</span>교과적용년도</div>
                         <select name="curriculumYear">
+                            <option selected disabled>선택</option>
                             <option value="2023">2023</option>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
@@ -50,6 +52,7 @@
                     <div>
                         <div><span>*</span>학년</div>
                         <select name="grade">
+                            <option selected disabled>선택</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -59,6 +62,7 @@
                 </div>
                 <div><span>*</span>학과</div>
                 <select name="major">
+                    <option selected disabled>선택</option>
                     <option value="생명과학부">생명과학부</option>
                     <option value="물리학과">물리학과</option>
                     <option value="수학과">수학과</option>
@@ -71,6 +75,7 @@
                 </select>
                 <div>복수전공</div>
                 <select name="doubleMajor">
+                    <option value="none">선택안함</option>
                     <option value="생명과학부">생명과학부</option>
                     <option value="물리학과">물리학과</option>
                     <option value="수학과">수학과</option>
@@ -83,6 +88,7 @@
                 </select>
                 <div>부전공</div>
                 <select name="minor">
+                    <option value="none">선택안함</option>
                     <option value="생명과학부">생명과학부</option>
                     <option value="물리학과">물리학과</option>
                     <option value="수학과">수학과</option>
@@ -95,9 +101,10 @@
                 </select>
                 <div>이수내역확인표 PDF</div>
                 <div id="filebox">
-                    <label for="file">이수내역확인표 추가</label>
                     <input type="file" id="file">
+                    <label for="file">업로드</label>
                 </div>
+                <div id="completionSheet-freshman">1-1 신입생의 경우 이수내역확인표는 추가하지 않아도 됩니다.</div>
                 <input type="submit" value="수정 완료">
             </form>
         </div>
