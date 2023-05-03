@@ -1,13 +1,18 @@
-<!-- 남서린 작성 -->
+<!--이지민 작성-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <link type="text/css" rel="stylesheet" href="../css/recommendProcess.css">
-        <script type="text/javascript" src="../js/main.js"></script>
-        <title>에브리데이터</title>
+        <script type="text/javascript" src="../js/recommendProcess.js"></script>
+        <title>EVERYDATA</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="icon" sizes="192x192" href="../img/logo-green.png">
+        <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
     </head>
     <body>
         <header>
@@ -16,10 +21,10 @@
                     <li><a href="#">학점 관리</a></li>
                     <li><a href="#">대학 정보</a></li>
                     <li>
-                        <a style="color: black;">강의</a>
+                        <a>강의</a>
                         <ul id="nav-menu_sub">
-                            <li><a href="#">강의 목록</a></li>
-                            <li><a href="#">강의 추천</a></li>
+                            <li><a href="./searchTimeTable.html">강의 목록</a></li>
+                            <li><a href="./recommendProcess.html">강의 추천</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -39,7 +44,7 @@
                 *<strong>교양 교과목</strong>만 추천됩니다.</p>
             </div>
                 <ol>
-                    <li>1. 원하는 공강 요일을 선택해주세요.<br><br>
+                    <li><b>1. 원하는 공강 요일을 선택해주세요.</b><br><br>
                         <ul id="section-class_day">
                             <li><label><input type="radio" name="day" value="mon"> 월</label></li>
                             <li><label><input type="radio" name="day" value="tue"> 화</label></li>
@@ -53,14 +58,14 @@
                     <br>
                     <hr align="left" style="border: solid 1px #40BBCA; width:95%">
                     <br>
-                    <li>2. 강의 추천으로 채우고 싶은 학점을 입력해주세요.<br><br>
+                    <li><b>2. 강의 추천으로 채우고 싶은 학점을 입력해주세요.</b><br><br>
                         <input type="text" placeholder="ex) 5" id="div-fill_credit"> 학점
                     </li>
                     <br>
                     <br>
                     <hr align="left" style="border: solid 1px #40BBCA; width:95%">
                     <br>
-                    <li>3. 선호하는 과목의 영역을 선택해주세요. (복수선택)<br><br>
+                    <li><b>3. 선호하는 과목의 영역을 선택해주세요. (복수선택)</b><br><br>
                         <table>
                             <tr>
                                 <th>균형교양(통합교양)</th>
@@ -68,42 +73,42 @@
                                 <th>기초교양</th>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="balanceClass">1영역(문학과 문화)</td>
-                                <td><input type="checkbox" name="CoreClass">영어</td>
-                                <td><input type="checkbox" name="RootClass">외국어 영역</td>
+                                <td><label><input type="checkbox" name="balanceClass">1영역(문학과 문화)</label></td>
+                                <td><label><input type="checkbox" name="CoreClass">영어</label></td>
+                                <td><label><input type="checkbox" name="RootClass">외국어 영역</label></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="balanceClass">2영역(역사와 철학)</td>
-                                <td><input type="checkbox" name="CoreClass">글쓰기</td>
-                                <td><input type="checkbox" name="RootClass">인문사회 영역</td>
+                                <td><label><input type="checkbox" name="balanceClass">2영역(역사와 철학)</label></td>
+                                <td><label><input type="checkbox" name="CoreClass">글쓰기</label></td>
+                                <td><label><input type="checkbox" name="RootClass">인문사회 영역</label></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="balanceClass">3영역(인간과 사회)</td>
-                                <td><input type="checkbox" name="CoreClass">디지털 리터러시</td>
-                                <td><input type="checkbox" name="RootClass">자연계열 영역</td>
+                                <td><label><input type="checkbox" name="balanceClass">3영역(인간과 사회)</label></td>
+                                <td><label><input type="checkbox" name="CoreClass">디지털 리터러시</label></td>
+                                <td><label><input type="checkbox" name="RootClass">자연계열 영역</label></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="balanceClass">4영역(생명과 환경)</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="balanceClass">5영역(과학과 기술)</td>
+                                <td><label><input type="checkbox" name="balanceClass">4영역(생명과 환경)</label></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="balanceClass">6영역(예술과 체육)</td>
+                                <td><label><input type="checkbox" name="balanceClass">5영역(과학과 기술)</label></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="balanceClass">7영역(융복합 영역)</td>
+                                <td><label><input type="checkbox" name="balanceClass">6영역(예술과 체육)</label></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="balanceClass">8영역(진로와 개척)</td>
+                                <td><label><input type="checkbox" name="balanceClass">7영역(융복합 영역)</label></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" name="balanceClass">8영역(진로와 개척)</label></td>
                                 <td></td>
                                 <td></td>
                             </tr>
@@ -111,7 +116,17 @@
                     </li><br>
                 </ol>
         </section>
-        <input type="submit" value="강의 추천 받기" id="input-recommend_submit">
+        <input type="submit" value="강의 추천 받기" id="input-recommend_submit" onclick="location.href='recommendResult.html'">
+        <footer>
+            <div id="footer-left">
+                <div>2023 - 1 소프트웨어설계PBL : EVERYDATA</div>
+                <div>팀 오합지졸 - 남서린 | 민희진 | 이송하 | 이지민 | 훌랑</div>
+                <div>Copyright 2023. 오합지졸 All rights reserved.</div>
+            </div>
+            <div id="footer-right">
+                <img src="../img/logo-white.png" width="80">
+            </div>
+        </footer>
         
     </body>
 </html>

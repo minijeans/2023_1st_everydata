@@ -3,6 +3,10 @@
 body{
     margin: 0;
     background-color: #fcfcfc;
+    background-image: url('../img/background-main.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 a{
     text-decoration: none;
@@ -212,75 +216,166 @@ main{
 
     align-self: center;
     width: 1000px;
-    height: 700px;
+    height: 1000px;
     /* margin설정하니까 페이지 가운데로 자동정렬되네요! */
     margin: 0 auto;
 }
+/* ~님을 위한 강의추천을 받아보세요! 문구 */
 strong{
     color: #40BBCA;
 }
+/* ~님을 위한 강의추천을 받아보세요! 문구 */
 #div-class_box>p{
     background-color: rgb(233,247,246);
     padding: 10px;
     margin: 0 auto;
 }
-#form-search{
-    width: 500px;
-    height: 10px;
+/* 검색창 전체 div */
+#section-search_box{
+    width: 50%;
+    height: auto;
     margin: 10px auto;
     display: block;
-    padding: 20px;
+}
+/* 검색창 form */
+#div-search_time_table{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+/* 검색창 텍스트 입력하는 부분 */
+#form-search_text{
+    width: 80%;
+    height: auto;
     font-size: 20px;
     background-color: #FFFFFF;
-    border: 2px solid #62D3DA;
+    border: 1.5px solid #62D3DA;
     border-radius: 10px;
+    padding: 10px;
 }
+/* 검색하기 버튼 */
+#form-search_button{
+    width: 40px;
+    height: auto;
+    background-color: white;
+    border: none;
+    padding: 8px;
+}
+.fa-magnifying-glass{
+    color: #62D3DA;
+    height: auto;
+    width: auto;
+}
+/* 카테고리 전체 div */
 #section-class_category{
     width: 90%;
-    height: 20%;
+    height: 14%;
     background-color: #FFFFFF;
     border: 1px solid #62D3DA;
     border-radius: 10px;
     margin: 0px auto;
 }
+/* 카테고리 내 테이블(카테고리 테이블) */
 #div-class_category_table{
     height: 100%;
-    border-spacing: 10px;
+    display: block;
+    margin: 0 auto;
+    border-spacing: 11px;
 }
+/* 카테고리 테이블 내 버튼 */
 #div-class_category_table button{
     background-color: #FFFFFF;
-    border: 1px solid #62D3DA;
+    color:#62D3DA;
+    border: 1.5px solid #62D3DA;
     border-radius: 10px;
-    width: 30px;
+    width: 32px;
     height: 30px;
+    font-weight: bold;
 }
+/* 카테고리 테이블 내 버튼 배경색의 hover */
 #div-class_category_table button:hover{
-    background-color: #40BBCA;
+    background-color: #62D3DA;
     color: white;
 }
+/* 카테고리 테이블의 td(년도, 요일 등등) */
+#div-class_category_table th{
+    width: 80px;
+    color:#62D3DA;
+}
+/* --------------------------------수정 필요--------------------------- */
+#div-class_category_table button :visited{
+    background-color: #40BBCA;
+    color: black;
+}
+/* 카테고리 테이블의 dropbox (년도 ,구분) */
 #div-class_category_table select{
-    width: 60%;
-    font-size: 20px;
+    width: 200px;
+    font-size: 15px;
     background-color: #FFFFFF;
     border: 1px solid #D0D0D0;
     border-radius: 5px;
-    padding: 1px;
+    padding: 5px;
     text-align: center;
-
 }
+/* 구분의 optgroup */
 #div-class_category_table optgroup{
     font-size: 15px;
     text-align: left;
 }
+/* 강의 검색 결과 div */
 #section-class_list{
     width: 95%;
-    height: 20%;
+    height: 700px;
     background-color: #FFFFFF;
-    border: 1px solid #62D3DA;
-    border-radius: 10px;
     margin: 10px auto;
+    overflow: auto;
 }
+/* 강의 검색 결과 div내의 테이블 */
 #div-class_list_table{
     width: 100%;
+    border-collapse: collapse;
     text-align: center;
+}
+/* 강의 검색 결과 테이블의 제목(교수명, 강의실, 시간표에 추가 등등) */
+#div-class_list_table div{
+    background-color: #D3F0F0;
+    border-radius: 5px;
+    padding: 5px;
+    width: auto;
+
+}
+#div-class_list_table th{
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+#div-class_list_table th, #div-class_list_table td{
+    border-bottom: 1px solid #d0d0d0;
+    padding: 10px;
+}
+/* 시간표에 추가 버튼 */
+#div-class_list_table button{
+    background-color: #62D3DA;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 7px;
+}
+
+footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    background-color: #E8E8E8;
+    align-items: center;
+    margin-top: 30px;
+    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer-left div{
+    padding: 2px;
+    color: #A5A5A5;
 }
