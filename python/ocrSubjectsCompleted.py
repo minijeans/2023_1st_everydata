@@ -1,5 +1,3 @@
-pip install tika # tika 라이브러리 설치
-
 from tika import parser # pdf를 txt파일로 변환
 pdf_path = "report_server.jsp.pdf"
 parsed = parser.from_file(pdf_path)
@@ -36,5 +34,8 @@ for row in l2:
     for elem in row:
         new_row.extend(elem.split())
     final_lst.append(new_row)
+
+# mysql에 넣는 작업까지
+
 
 print(final_lst)
