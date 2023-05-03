@@ -1,13 +1,18 @@
-<!-- 남서린 작성 -->
+<!--이지민 작성-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <link type="text/css" rel="stylesheet" href="../css/searchTimeTable.css">
-        <script type="text/javascript" src="../js/main.js"></script>
-        <title>에브리데이터</title>
+        <script type="text/javascript" src="../js/searchTimeTable.js"></script>
+        <title>EVERYDATA</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="icon" sizes="192x192" href="../img/logo-green.png">
+        <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
     </head>
     <body>
         <header>
@@ -16,10 +21,10 @@
                     <li><a href="#">학점 관리</a></li>
                     <li><a href="#">대학 정보</a></li>
                     <li>
-                        <a style="color: black;">강의</a>
+                        <a>강의</a>
                         <ul id="nav-menu_sub">
-                            <li><a href="#">강의 목록</a></li>
-                            <li><a href="#">강의 추천</a></li>
+                            <li><a href="./searchTimeTable.html">강의 목록</a></li>
+                            <li><a href="./recommendProcess.html">강의 추천</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -36,15 +41,18 @@
             <div id="div-class_box">
                 <p><strong style="color: black;">강의 > 강의목록</strong></p>
             </div>
-            <form id="section-search_time_table">
-                <input type="text" placeholder="강의명을 입력하세요" id="form-search">
-            </form>
+            <div id="section-search_box">
+                <form id="div-search_time_table">
+                    <input type="text" id="form-search_text">
+                    <button type="button" id="form-search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
             <div id="section-class_category">
                 <table id="div-class_category_table">
                     <tr>
                         <th>년도</th>
                         <td colspan="9">
-                            <select>
+                            <select id="table-semester">
                                 <option>2023-1</option>
                                 <option>2022-2</option>
                                 <option>2022-1</option>
@@ -52,7 +60,7 @@
                         </td>
                         <th>구분</th>
                         <td>
-                            <select>
+                            <select id="table-ge_category">
                                 <optgroup label="교양">
                                     <optgroup label="통합교양">
                                         <option>1영역</option>
@@ -107,20 +115,178 @@
                 </table>
             </div>
             <div id="section-class_list">
-                웹프 실습12주차 7번문제 참고(버튼 클릭시 div 동적 생성)
                 <table id="div-class_list_table">
                     <tr>
-                        <td>강의명</td>
-                        <td>교수</td>
-                        <td>구분</td>
-                        <td>시간</td>
-                        <td>강의실</td>
-                        <td>시간표 추가</td>
+                        <th><div>강의명</div></th>
+                        <th><div>교수</div></th>
+                        <th><div>구분</div></th>
+                        <th><div>시간</div></th>
+                        <th><div>강의실</div></th>
+                        <th><div>시간표 추가</div></th>
+                    </tr>
+                    <tr>
+                        <td>환경과 오염</td>
+                        <td>김둘선</td>
+                        <td>균형교양(통합교양)
+                            5영역(과학과 기술)</td>
+                        <td>월 1, 2</td>
+                        <td>024-0260</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>기초설계PBL(어드벤처디자인)</td>
+                        <td>서현</td>
+                        <td>전공필수</td>
+                        <td>수 6, 7</td>
+                        <td>030-0304</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>식품자원계량분석론</td>
+                        <td>김태영</td>
+                        <td>전공필수</td>
+                        <td>월 1, 2, 3</td>
+                        <td>452-303</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>환경과 오염</td>
+                        <td>김둘선</td>
+                        <td>균형교양(통합교양)
+                            5영역(과학과 기술)</td>
+                        <td>월 1, 2</td>
+                        <td>024-0260</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>기초설계PBL(어드벤처디자인)</td>
+                        <td>서현</td>
+                        <td>전공필수</td>
+                        <td>수 6, 7</td>
+                        <td>030-0304</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>식품자원계량분석론</td>
+                        <td>김태영</td>
+                        <td>전공필수</td>
+                        <td>월 1, 2, 3</td>
+                        <td>452-303</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>환경과 오염</td>
+                        <td>김둘선</td>
+                        <td>균형교양(통합교양)
+                            5영역(과학과 기술)</td>
+                        <td>월 1, 2</td>
+                        <td>024-0260</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>기초설계PBL(어드벤처디자인)</td>
+                        <td>서현</td>
+                        <td>전공필수</td>
+                        <td>수 6, 7</td>
+                        <td>030-0304</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>식품자원계량분석론</td>
+                        <td>김태영</td>
+                        <td>전공필수</td>
+                        <td>월 1, 2, 3</td>
+                        <td>452-303</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>환경과 오염</td>
+                        <td>김둘선</td>
+                        <td>균형교양(통합교양)
+                            5영역(과학과 기술)</td>
+                        <td>월 1, 2</td>
+                        <td>024-0260</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>기초설계PBL(어드벤처디자인)</td>
+                        <td>서현</td>
+                        <td>전공필수</td>
+                        <td>수 6, 7</td>
+                        <td>030-0304</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>식품자원계량분석론</td>
+                        <td>김태영</td>
+                        <td>전공필수</td>
+                        <td>월 1, 2, 3</td>
+                        <td>452-303</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>환경과 오염</td>
+                        <td>김둘선</td>
+                        <td>균형교양(통합교양)
+                            5영역(과학과 기술)</td>
+                        <td>월 1, 2</td>
+                        <td>024-0260</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>기초설계PBL(어드벤처디자인)</td>
+                        <td>서현</td>
+                        <td>전공필수</td>
+                        <td>수 6, 7</td>
+                        <td>030-0304</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>식품자원계량분석론</td>
+                        <td>김태영</td>
+                        <td>전공필수</td>
+                        <td>월 1, 2, 3</td>
+                        <td>452-303</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>환경과 오염</td>
+                        <td>김둘선</td>
+                        <td>균형교양(통합교양)
+                            5영역(과학과 기술)</td>
+                        <td>월 1, 2</td>
+                        <td>024-0260</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>기초설계PBL(어드벤처디자인)</td>
+                        <td>서현</td>
+                        <td>전공필수</td>
+                        <td>수 6, 7</td>
+                        <td>030-0304</td>
+                        <td><button type="button">시간표에 추가</button></td>
+                    </tr>
+                    <tr>
+                        <td>식품자원계량분석론</td>
+                        <td>김태영</td>
+                        <td>전공필수</td>
+                        <td>월 1, 2, 3</td>
+                        <td>452-303</td>
+                        <td><button type="button">시간표에 추가</button></td>
                     </tr>
                 </table>
-
             </div>
         </section>
+        <footer>
+            <div id="footer-left">
+                <div>2023 - 1 소프트웨어설계PBL : EVERYDATA</div>
+                <div>팀 오합지졸 - 남서린 | 민희진 | 이송하 | 이지민 | 훌랑</div>
+                <div>Copyright 2023. 오합지졸 All rights reserved.</div>
+            </div>
+            <div id="footer-right">
+                <img src="../img/logo-white.png" width="80">
+            </div>
+        </footer>
     </body>
 </html>
 

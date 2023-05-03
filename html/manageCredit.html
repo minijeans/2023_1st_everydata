@@ -1,13 +1,18 @@
-<!-- 남서린 작성 -->
+<!--이지민 작성-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <link type="text/css" rel="stylesheet" href="../css/manageCredit.css">
-        <script type="text/javascript" src="../js/main.js"></script>
-        <title>에브리데이터</title>
+        <script type="text/javascript" src="../js/manageCredit.js"></script>
+        <title>EVERYDATA</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="icon" sizes="192x192" href="../img/logo-green.png">
+        <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
     </head>
     <body>
         <header>
@@ -16,10 +21,10 @@
                     <li><a href="#">학점 관리</a></li>
                     <li><a href="#">대학 정보</a></li>
                     <li>
-                        <a style="color: black;">강의</a>
+                        <a>강의</a>
                         <ul id="nav-menu_sub">
-                            <li><a href="#">강의 목록</a></li>
-                            <li><a href="#">강의 추천</a></li>
+                            <li><a href="./searchTimeTable.html">강의 목록</a></li>
+                            <li><a href="./recommendProcess.html">강의 추천</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -38,19 +43,19 @@
             </div>
             <div id="section-left_credit_until_graduate">
                 <p><b>졸업까지 남은 학점은 ... </b></p>
-                <table id="div-left_credit_until_graduate_table" border="1">
+                <table id="div-left_credit_until_graduate_table">
                     <tr>
                         <td></td>
-                        <td colspan="4">교양</td>
-                        <td colspan="8">전공</td>
+                        <th colspan="4"><div>교양</div></th>
+                        <th colspan="8" style="border-left: 1.5px solid #62d3da"><div>전공</div></th>
                     </tr>
                     <tr>
                         <td></td>
                         <td colspan="4"></td>
-                        <td colspan="2">본전공</td>
-                        <td colspan="2">복수전공</td>
-                        <td colspan="2">부전공</td>
-                        <td>교직</td>
+                        <td colspan="2" style="border-left: 1.5px solid #62d3da"><div>본전공</div></td>
+                        <td colspan="2"><div>복수전공</div></td>
+                        <td colspan="2"><div>부전공</div></td>
+                        <td><div>교직</div></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -58,7 +63,7 @@
                         <td>균형(통합)</td>
                         <td>기초</td>
                         <td>일반</td>
-                        <td>필수</td>
+                        <td style="border-left: 1.5px solid #62d3da">필수</td>
                         <td>선택</td>
                         <td>필수</td>
                         <td>선택</td>
@@ -68,56 +73,157 @@
                     </tr>
                     <tr>
                         <td>소요</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td colspan="2"></td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>9</td>
+                        <td>6</td>
+                        <td style="border-left: 1.5px solid #62d3da">18</td>
+                        <td>21</td>
+                        <td>21</td>
+                        <td>15</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td colspan="2">-</td>
                     </tr>
                     <tr>
                         <td>취득</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td colspan="2"></td>
+                        <td>10</td>
+                        <td>16</td>
+                        <td>12</td>
+                        <td>8</td>
+                        <td style="border-left: 1.5px solid #62d3da">12</td>
+                        <td>15</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td colspan="2">-</td>
                     </tr>
-                    <tr>
+                    <tr id="table-left_credit" style="border-top: 1.5px solid #62d3da">
                         <td>잔여</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td colspan="2"></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td style="border-left: 1.5px solid #62d3da">6</td>
+                        <td>6</td>
+                        <td>15</td>
+                        <td>8</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td colspan="2">-</td>
                     </tr>
                 </table>
-                <p><strong>[균형교양은] -영역을 수강했습니다. 졸업 요건을 충족합니다.</strong></p>
+                <div id="div-completed_balance">
+                    <p><strong>[균형교양]은 
+                        <span id="div-completed_balance_kinds"></span> 영역을 수강했습니다.
+                        <span id="div-completed_balance_safe"></span></strong>
+                    </p>
+                </div>
             </div>
             <p><button id="section-origin_table">이수내역확인표 원본 보기</button></p>
+            <hr style="border: 1px solid rgb(229, 229, 229); width: 95%;">
             <div id="section-opened_major_in_semester">
                 <p>
                     <strong>2023-1학기에 개설된 전공</strong>
-                    <button>시간표에 추가</button>    
+                    <button><b>시간표에 추가</b></button>    
                 </p>
+                <div id="section-opened_lecture">개설강의</div>
+                <div id="section-time_table">
+                    <table id="div-time_table">
+                        <tr>
+                            <th> </th>
+                            <th>월</th>
+                            <th>화</th>
+                            <th>수</th>
+                            <th>목</th>
+                            <th>금</th>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>11</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>12</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </section>
+        <footer>
+            <div id="footer-left">
+                <div>2023 - 1 소프트웨어설계PBL : EVERYDATA</div>
+                <div>팀 오합지졸 - 남서린 | 민희진 | 이송하 | 이지민 | 훌랑</div>
+                <div>Copyright 2023. 오합지졸 All rights reserved.</div>
+            </div>
+            <div id="footer-right">
+                <img src="../img/logo-white.png" width="80">
+            </div>
+        </footer>
     </body>
 </html>

@@ -1,16 +1,17 @@
-/*--이지민 작성--*/
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 body{
     margin: 0;
     background-color: #fcfcfc;
+    background-image: url('../img/background-main.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
-
 a{
     text-decoration: none;
     color: #40BBCA;
 }
-
 li{
     list-style: none;
 }
@@ -23,6 +24,8 @@ nav{
     padding: 15px 15px;
     background-color: #FFFFFF;
     box-shadow: 0px 5px 6px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
 }
 #nav-menu{
     display: flex;
@@ -65,6 +68,10 @@ nav{
     padding-left: 0;
     font-family: Bebas Neue;
     font-size: 40px;
+    align-items: center;
+    left: 50%;
+    padding-left: 100px;
+    padding-right: 250px;
 }
 .nav-logo_data{
     color: #94D4D8;
@@ -82,6 +89,64 @@ nav{
     color: #40BBCA;
 }
 
+#main-decoration {
+    z-index: 1;
+}
+#decoration-logo_box {
+    top: 65%;
+    margin-left: -280px;
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+}
+#decoration-logo {
+    opacity: 0.2;
+    width: 600px;
+}
+#decoration-rectangles {
+    position: absolute;
+    top: 20%;
+    right: 0%;
+}
+#decoration-rectangles > div {
+    background-color: #E9F7F6;
+    height: 25px;
+    margin-top: 20px;
+}
+#decoration-circle_box {
+    position: absolute;
+    top: 75%;
+    right: 0%;
+    width: 280px;
+    height: 300px;
+    overflow: hidden;
+}
+#decoration-circle_big {
+    box-sizing: border-box;
+    width: 500px;
+    height: 500px;
+    border-radius: 100%;
+    border: 80px solid #E9F7F6;
+}
+#decoration-circle_left {
+    position: absolute;
+    background-color: #E9F7F6;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    left: 180px;
+    top: 55%;
+}
+#decoration-circle_right {
+    position: absolute;
+    background-color: #E9F7F6;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    right: 11%;
+    top: 72%;
+}
 
 main{
     margin-top: 30px;
@@ -102,6 +167,7 @@ main{
     border: 2px solid #d3f0f0;
     border-radius: 10px;
     box-shadow: 0px 5px 6px rgba(0,0,0,0.1);
+    z-index: 2;
 }
 .main-right{
     display: flex;
@@ -153,30 +219,53 @@ main{
     /* margin설정하니까 페이지 가운데로 자동정렬되네요! */
     margin: 0 auto;
 }
+/* ~님을 위한 강의추천을 받아보세요! 문구 */
 p>strong{
     color: #40BBCA;
 }
+/* ~님을 위한 강의추천을 받아보세요! 문구 */
 #section-class_box > p{
     background-color: rgb(233,247,246);
     padding: 10px;
     margin: 0 auto;
 }
+/* 시간표 들어있는 div */
 #section-time_table{
-    display: inline-block;
+    display: block;
     float: left;
     width: 400px;
     height: 500px;
     background-color: #f5f5f5;
     margin-left: 50px;
 }
+/* 강의추천결과 시간표 */
+#div-recommend_time_table, th, td{
+    border: 1px solid #D9D9D9;
+    border-collapse: collapse;
+}
+#div-recommend_time_table th{
+    font-family: Montserrat;
+    font-weight: lighter;
+    font-size: 14px;
+    vertical-align: top;
+}
+#div-recommend_time_table td{
+    width: 100px;
+    height: 50px;
+}
+#div-recommend_time_table{
+    margin: auto;
+}
+/* 강의추천결과 리스트(여러개 들어있는 div) */
 #section-recommend_list{
     width: 400px;
     height: 500px;
     overflow: scroll;
-    display: inline-block;
+    display: block;
     float: right;
     margin-right: 50px;
 }
+/* 추천된 강의(과목별 하나씩 존재) */
 #div-recommended_class{
     margin: 10px;
     background-color: #E9F7F6;
@@ -184,28 +273,55 @@ p>strong{
     padding: 10px;
     border-radius: 10px;
 }
+/* 다시추천받기 버튼 */
 #section-re_recommend{
     width: 300px;
     height: 80px;
     font-size: 30px;
-    margin: 30px auto;
-    display: block;
+    margin-left: 500px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #62D3DA;
     border-radius: 10px;
     color: white;
     border: white;
+    display: block;
+    float: left;
+    font-weight: bold;
 }
+/* 시간표에 추가 버튼 */
 #section-add_in_time_table{
     width: 300px;
     height: 80px;
     font-size: 30px;
-    margin: 30px auto;
-    display: block;
+    margin-right: 500px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #62D3DA;
     border-radius: 10px;
     color: white;
     border: white;
+    display:block;
+    float: right;
+    font-weight: bold;
 }
+/* 추천된 과목의 강의명 ex)환경과 오염 */
 #recommendedClassName>strong{
     color: black;
+}
+footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    background-color: #E8E8E8;
+    align-items: center;
+    margin-top: 0px;
+    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer-left div{
+    padding: 2px;
+    color: #A5A5A5;
 }
