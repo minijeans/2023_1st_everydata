@@ -1,0 +1,18 @@
+/* 이지민 작성 */
+
+footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    background-color: #E8E8E8;
+    align-items: center;
+    margin-top: 40px;
+    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer-left div{
+    padding: 2px;
+    color: #A5A5A5;
+}
