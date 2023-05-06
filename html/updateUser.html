@@ -16,7 +16,7 @@
             <div>*은 필수항목입니다.</div>
             <form method="post" id="update-form" action="upload" enctype="multipart/form-data">
                 <div><span>*</span>아이디</div>
-                <input type="text" name="userId" placeholder="아이디 입력(6~20자)" maxlength="20" value="<%=user.getUserID()%>" readonly>
+                <input type="text" name="userId" placeholder="아이디 입력(6~20자)" maxlength="20" value="<%=user.getUserID()%>" disabled readonly>
                 <div><span>*</span>비밀번호</div>
                 <input type="password" name="userPassword" placeholder="비밀번호 입력(6~20자)" maxlength="20" value="<%=user.getUserPassword()%>">
                 <div><span>*</span>비밀번호 확인</div>
