@@ -165,12 +165,40 @@ strong{
     float: right;
     margin-right: 20px;
 }
+
+#div-completed_balance{
+    width: 80%;
+    margin-left: 40px;
+    font-weight: bold;
+    color:#40BBCA;
+}
+
+/* 개설 전공 학기 div*/
+#p-semester_date{
+    font-size: 25px;
+    display: inline-block;
+    margin-left: 25px;
+    font-weight: bold;
+    color:#40BBCA;
+}
+
 /* 개설강의 div */
 #section-opened_lecture{
     float: left;
     margin: 2.5%;
     width: 45%;
-    background-color: #40BBCA;
+}
+/* 개설 전공 테이블 */
+#div-search_major{
+    text-align: center;
+    border: 1px solid black;
+    width: 100%;
+
+} 
+#div-search_major td{
+    font-size: 20px;
+    border: 1px solid black;
+    background-color: #d3f0f0;
 }
 
 /* 시간표 들어있는 div */
