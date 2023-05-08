@@ -8,7 +8,7 @@
         <link type="text/css" rel="stylesheet" href="../css/searchTimeTable.css">
         <link type="text/css" rel="stylesheet" href="../css/nav.css">
         <link type="text/css" rel="stylesheet" href="../css/footer.css">
-        <script type="text/javascript" src="../js/searchTimeTable.js"></script>
+        <script type="text/javascript" defer src="../js/searchTimeTable.js"></script>
         <title>EVERYDATA</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,10 +20,10 @@
         <header>
             <nav>
                 <ul id="nav-menu">
-                    <li><a href="#">학점 관리</a></li>
-                    <li><a href="#">대학 정보</a></li>
+                    <li><a href="./manageCredit.html">학점 관리</a></li>
+                    <li><a href="./scholarshipInformation.html">대학 정보</a></li>
                     <li>
-                        <a>강의</a>
+                        <a style="color: black;">강의</a>
                         <ul id="nav-menu_sub">
                             <li><a href="./searchTimeTable.html">강의 목록</a></li>
                             <li><a href="./recommendProcess.html">강의 추천</a></li>
@@ -45,10 +45,11 @@
             </div>
             <div id="section-search_box">
                 <form id="div-search_time_table">
-                    <input type="text" id="form-search_text">
+                    <input type="text" id="form-search_text" placeholder="강의명 검색">
                     <button type="button" id="form-search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
+            <!-- 모든 항목을 필수 입력 요소로 지정(입력하지 않은 경우 경고문구 출력, 하나라도 입력되지 않았으면 강의 추천 받기가 넘어가지 않게.) -->
             <div id="section-class_category">
                 <table id="div-class_category_table">
                     <tr>
@@ -94,6 +95,7 @@
                         </td>
                     </tr>
                     <tr>
+                        <!-- 요일은 하나만 -->
                         <th>요일</th>
                         <td><button id="table-select_day">월</button></td>
                         <td><button id="table-select_day">화</button></td>
@@ -103,6 +105,7 @@
                         <td><button id="table-select_day">토</button></td>
                     </tr>
                     <tr>
+                        <!-- 교시는 중복선택 (and) 월 1,2선택하면 월123은 출력, 월1은 출력하지 않음 -->
                         <th>교시</th>
                         <td><button id="table-select_hour">1</button></td>
                         <td><button id="table-select_hour">2</button></td>
