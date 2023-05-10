@@ -1,10 +1,9 @@
 //이지민 작성
 
 //유효성 체크 메세지 보여주는 함수
-//에러일 때 red vs #FF8540(주황) 고민중
 const showMessage = (targetId, message, isError) => {
-    const borderColor = isError ? '#FF8540' : '';
-    const textColor = isError ? '#FF8540' : '#A5A5A5';
+    const borderColor = isError ? 'red' : '';
+    const textColor = isError ? 'red' : '#A5A5A5';
     $(`#${targetId}`).css('border-color', borderColor);
     $(`#${targetId}-checktext`).css('color', textColor).text(message);
 };
@@ -34,7 +33,7 @@ const id_inputcheck = () => {
 
 //비밀번호 유효성 검사
 const password_inputcheck = () => {
-    //영문자, 숫자, 특수문자(!@#$%^&*) 중 2종류 이상을 조합한 8~20자의 문자열
+    //영문자, 숫자, 특수문자(!@#$%^&*)를 조합한 8~20자의 문자열
     const passwordReg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,20}$/;
     const password = document.getElementById("password").value;
 
@@ -50,7 +49,7 @@ const password_inputcheck = () => {
     }
     else {
         //유효하지 않은 비밀번호 형식
-        showMessage('password', '8~20자로 영문자, 숫자, 특수문자 중 2종류 이상을 포함하여 입력해주세요.', true);
+        showMessage('password', '8~20자로 영문자, 숫자, 특수문자를 포함하여 입력해주세요.', true);
         return false;
     }
 };
