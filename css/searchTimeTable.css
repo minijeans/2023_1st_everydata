@@ -115,7 +115,7 @@ strong{
 #form-search_text{
     width: 80%;
     height: auto;
-    font-size: 20px;
+    font-size: 15px;
     background-color: #FFFFFF;
     border: 1.5px solid #62D3DA;
     border-radius: 10px;
@@ -151,7 +151,7 @@ strong{
     border-spacing: 11px;
 }
 /* 카테고리 테이블 내 버튼 */
-#div-class_category_table button{
+#div-class_category_table label{
     background-color: #FFFFFF;
     color:#62D3DA;
     border: 1.5px solid #62D3DA;
@@ -159,12 +159,23 @@ strong{
     width: 32px;
     height: 30px;
     font-weight: bold;
+    font-size: 13px;
+    padding: 2px;
+
 }
+  
 /* 카테고리 테이블 내 버튼 배경색의 hover */
-#div-class_category_table button:hover{
+#div-class_category_table label:hover{
     background-color: #62D3DA;
     color: white;
 }
+#div-class_category_table input:visited {
+  background-color: #62D3DA;
+  color: white;
+
+}
+
+  
 /* 카테고리 테이블의 td(년도, 요일 등등) */
 #div-class_category_table th{
     width: 80px;
