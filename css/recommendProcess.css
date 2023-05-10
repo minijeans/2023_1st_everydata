@@ -121,9 +121,10 @@ div>ol>li{
 /* 추천학점 입력 */
 #div-fill_credit{
     height: 30px;
-    width: 100px;
+    width: 50px;
     margin-left: 50px;
-    font-size: 20px;
+    padding: 2px;
+    font-size: 15px;
 }
 
 /* 3번 문항 */

@@ -95,28 +95,27 @@
                         </td>
                     </tr>
                     <tr>
-                        <!-- 요일은 하나만 -->
+                        <!-- 요일은 하나만! -->
                         <th>요일</th>
-                        <td><button id="table-select_day">월</button></td>
-                        <td><button id="table-select_day">화</button></td>
-                        <td><button id="table-select_day">수</button></td>
-                        <td><button id="table-select_day">목</button></td>
-                        <td><button id="table-select_day">금</button></td>
-                        <td><button id="table-select_day">토</button></td>
-                    </tr>
-                    <tr>
-                        <!-- 교시는 중복선택 (and) 월 1,2선택하면 월123은 출력, 월1은 출력하지 않음 -->
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="mon" onclick="NoMultiChk(this)">월</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="tue" onclick="NoMultiChk(this)">화</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="wed" onclick="NoMultiChk(this)">수</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="thr" onclick="NoMultiChk(this)">목</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="fri" onclick="NoMultiChk(this)">금</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="sat" onclick="NoMultiChk(this)">토</label></td>
+                      </tr>
+                      <tr>
                         <th>교시</th>
-                        <td><button id="table-select_hour">1</button></td>
-                        <td><button id="table-select_hour">2</button></td>
-                        <td><button id="table-select_hour">3</button></td>
-                        <td><button id="table-select_hour">4</button></td>
-                        <td><button id="table-select_hour">5</button></td>
-                        <td><button id="table-select_hour">6</button></td>
-                        <td><button id="table-select_hour">7</button></td>
-                        <td><button id="table-select_hour">8</button></td>
-                        <td><button id="table-select_hour">9</button></td>
-                    </tr>
+                        <td><label><input type="checkbox" class="table-select_hour" value="1">1</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="2">2</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="3">3</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="4">4</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="5">5</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="6">6</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="7">7</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="8">8</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="9">9</label></td>
+                      </tr>
                 </table>
             </div>
             <div id="section-class_list">
