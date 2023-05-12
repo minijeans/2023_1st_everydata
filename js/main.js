@@ -6,7 +6,7 @@ const tempSubjects = [
   {id: 3, name: "데이터베이스", professor:"홍길동", category: "전공필수", time:"금1, 금2", room: "030-0304"},
   {id: 4, name: "데이터과학", professor:"홍길동", category: "전공필수", time:"월11, 월12", room: "030-0304"},
   {id: 5, name: "컴퓨터네트워크", professor:"홍길동", category: "전공필수", time:"화6, 화7, 수3", room: "030-0304"}
-]
+];
 
 //사용자 프로필
 $.ajax({
@@ -49,27 +49,27 @@ for (let i = 0; i < days.length; i++) {
   }
 }
 
-//시간표 강의 목록
-let subjects = [];
+// //시간표 강의 목록
+// let subjects = [];
+// //시간표에 강의 추가
+// const addSubjectToTimetable = (subject) => {
+//   const day = subject.day;
+//   const time = subject.time;
+//   const duration = subject.duration;
+//   const cell = $(`#main-timetable td[data-day=${day}][data-time=${time}]`);
 
-//시간표에 강의 추가
-const addSubjectToTimetable = (subject) => {
-  const day = subject.day;
-  const time = subject.time;
-  const duration = subject.duration;
-  const cell = $(`#main-timetable td[data-day=${day}][data-time=${time}]`);
-
-  if (cell.children().length > 0) {
-    alert("해당시간에 이미 다른 강의가 있습니다.");
-    return;
-  };
-  for (let i=0; i < duration; i++) {
-    const targetCell = $(`#main-timetable td[data-day=${day}][data-time=${time + i}]`);
-    targetCell.append(`<div>${subject.name}</div>`);
-  };
+//   if (cell.children().length > 0) {
+//     alert("해당시간에 이미 다른 강의가 있습니다.");
+//     return;
+//   };
+//   for (let i=0; i < duration; i++) {
+//     const targetCell = $(`#main-timetable td[data-day=${day}][data-time=${time + i}]`);
+//     targetCell.append(`<div>${subject.name}</div>`);
+//   };
   
-  subjects.push(subject);
-}
+//   subjects.push(subject);
+// }
+
 
 //강의목록 팝업창 : 메인 '+' 버튼 onclick (샘플)
 const openSubjectList = () => {
@@ -77,17 +77,47 @@ const openSubjectList = () => {
   window.open(url, 'subject-list-popup', 'width=1200,height=800');
 }
 
+//시간표 강의 목록
+let subjects = [];
+//시간표에 강의 추가
+let addSubjectToTimetable = (subject) => {
+  console.log("시간표에 강의 추가");
+  
+  const dayTimePairs = subject.time.split(",");
+  console.log(document.getElementById("main-timetable"));
+  const mainTimetable = document.querySelector("#main-timetable");
+  if (mainTimetable) {
+    for (const pair of dayTimePairs) {
+      const [day, time] = pair.split("");
+      console.log(day, time);
+      console.log(document.querySelector("#main-timetable"));
+      const cell = document.querySelector(`#main-timetable td[data-day="${day}"][data-time="${time}"]`);
+      console.log(cell);
+      if (cell.children.length > 0) {
+        alert("해당시간에 이미 다른 강의가 있습니다.");
+        return;
+      };
+      const div = document.createElement("div");
+      div.textContent = subject.name;
+      cell.appendChild(div);
+    }
+    subjects.push(subject);
+    console.log(subjects);
+  }
+};
+
 //강의목록 팝업창 : 메인 '+' 버튼 onclick
 // const openSubjectList = () => {
 //   const url = 'searchTimeTable.html';
 //   window.open(url, 'subject-list-popup', 'width=1200,height=800');
 // };
 
+
 //강의목록에서 강의 추가 : '시간표에 추가' 버튼 onclick or js파일에서 바로 button onclick 되게
-const addSubjectFromList = (id) => {
-  alert("강의추가");
-  const subject = tempSubjects.find(subject => subject.id === id);
-  addSubjectToTimetable(subject);
-}
+// const addSubjectFromList = (id) => {
+//   console.log("강의 추가");
+//   const subject = tempSubjects.find(subject => subject.id === id);
+//   addSubjectToTimetable(subject);
+// }
 
 //프로필 표시
