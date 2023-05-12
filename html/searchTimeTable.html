@@ -5,10 +5,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <link type="text/css" rel="stylesheet" href="{% static '../css/searchTimeTable.css' %}">
-        <link type="text/css" rel="stylesheet" href="{% static '../css/nav.css' %}">
-        <link type="text/css" rel="stylesheet" href="{% static '../css/footer.css' %}">
-        <script type="text/javascript" defer src="{% static '../js/searchTimeTable.js' %}"></script>
+        <link type="text/css" rel="stylesheet" href="../css/searchTimeTable.css">
+        <link type="text/css" rel="stylesheet" href="../css/nav.css">
+        <link type="text/css" rel="stylesheet" href="../css/footer.css">
+        <script type="text/javascript" defer src="../js/searchTimeTable.js"></script>
         <title>EVERYDATA</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,19 +20,19 @@
         <header>
             <nav>
                 <ul id="nav-menu">
-                    <li><a href="{% static '../css/nav.css' %}./manageCredit.html">학점 관리</a></li>
-                    <li><a href="{% static '../css/nav.css' %}./scholarshipInformation.html">대학 정보</a></li>
+                    <li><a href="./manageCredit.html">학점 관리</a></li>
+                    <li><a href="./scholarshipInformation.html">대학 정보</a></li>
                     <li>
                         <a style="color: black;">강의</a>
                         <ul id="nav-menu_sub">
-                            <li><a href="{% static './searchTimeTable.html' %}">강의 목록</a></li>
-                            <li><a href="{% static './recommendProcess.html' %}">강의 추천</a></li>
+                            <li><a href="./searchTimeTable.html">강의 목록</a></li>
+                            <li><a href="./recommendProcess.html">강의 추천</a></li>
                         </ul>
                     </li>
                 </ul>
                 <div id="nav-logo">
-                    <img id="nav-logo_img" src="{% static '../img/logo-green.png' %}" alt="메인로고" height="30">
-                    <a href="{% static 'main.html' %}">
+                    <img id="nav-logo_img" src="../img/logo-green.png" alt="메인로고" height="30">
+                    <a href="main.html">
                         <span>EVERY</span><span class="nav-logo_data">DATA</span>
                     </a>
                 </div>
@@ -46,7 +46,7 @@
             <div id="section-search_box">
                 <form id="div-search_time_table">
                     <input type="text" id="form-search_text" placeholder="강의명 검색">
-                    <button type="button" id="form-search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button id="form-search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
             <!-- 모든 항목을 필수 입력 요소로 지정(입력하지 않은 경우 경고문구 출력, 하나라도 입력되지 않았으면 강의 추천 받기가 넘어가지 않게.) -->
@@ -123,7 +123,8 @@
                     <tr>
                         <th><div>강의명</div></th>
                         <th><div>교수</div></th>
-                        <th><div>구분</div></th>
+                        <th><div id="table-class_category">구분</div></th>
+                        <th><div>학수번호</div></th>
                         <th><div>시간</div></th>
                         <th><div>강의실</div></th>
                         <th><div>시간표 추가</div></th>
@@ -133,151 +134,11 @@
                         <td>김둘선</td>
                         <td>균형교양(통합교양)
                             5영역(과학과 기술)</td>
+                        <td>0</td>
                         <td>월 1, 2</td>
                         <td>024-0260</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>기초설계PBL(어드벤처디자인)</td>
-                        <td>서현</td>
-                        <td>전공필수</td>
-                        <td>수 6, 7</td>
-                        <td>030-0304</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>식품자원계량분석론</td>
-                        <td>김태영</td>
-                        <td>전공필수</td>
-                        <td>월 1, 2, 3</td>
-                        <td>452-303</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>환경과 오염</td>
-                        <td>김둘선</td>
-                        <td>균형교양(통합교양)
-                            5영역(과학과 기술)</td>
-                        <td>월 1, 2</td>
-                        <td>024-0260</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>기초설계PBL(어드벤처디자인)</td>
-                        <td>서현</td>
-                        <td>전공필수</td>
-                        <td>수 6, 7</td>
-                        <td>030-0304</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>식품자원계량분석론</td>
-                        <td>김태영</td>
-                        <td>전공필수</td>
-                        <td>월 1, 2, 3</td>
-                        <td>452-303</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>환경과 오염</td>
-                        <td>김둘선</td>
-                        <td>균형교양(통합교양)
-                            5영역(과학과 기술)</td>
-                        <td>월 1, 2</td>
-                        <td>024-0260</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>기초설계PBL(어드벤처디자인)</td>
-                        <td>서현</td>
-                        <td>전공필수</td>
-                        <td>수 6, 7</td>
-                        <td>030-0304</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>식품자원계량분석론</td>
-                        <td>김태영</td>
-                        <td>전공필수</td>
-                        <td>월 1, 2, 3</td>
-                        <td>452-303</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>환경과 오염</td>
-                        <td>김둘선</td>
-                        <td>균형교양(통합교양)
-                            5영역(과학과 기술)</td>
-                        <td>월 1, 2</td>
-                        <td>024-0260</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>기초설계PBL(어드벤처디자인)</td>
-                        <td>서현</td>
-                        <td>전공필수</td>
-                        <td>수 6, 7</td>
-                        <td>030-0304</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>식품자원계량분석론</td>
-                        <td>김태영</td>
-                        <td>전공필수</td>
-                        <td>월 1, 2, 3</td>
-                        <td>452-303</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>환경과 오염</td>
-                        <td>김둘선</td>
-                        <td>균형교양(통합교양)
-                            5영역(과학과 기술)</td>
-                        <td>월 1, 2</td>
-                        <td>024-0260</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>기초설계PBL(어드벤처디자인)</td>
-                        <td>서현</td>
-                        <td>전공필수</td>
-                        <td>수 6, 7</td>
-                        <td>030-0304</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>식품자원계량분석론</td>
-                        <td>김태영</td>
-                        <td>전공필수</td>
-                        <td>월 1, 2, 3</td>
-                        <td>452-303</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>환경과 오염</td>
-                        <td>김둘선</td>
-                        <td>균형교양(통합교양)
-                            5영역(과학과 기술)</td>
-                        <td>월 1, 2</td>
-                        <td>024-0260</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>기초설계PBL(어드벤처디자인)</td>
-                        <td>서현</td>
-                        <td>전공필수</td>
-                        <td>수 6, 7</td>
-                        <td>030-0304</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
-                    <tr>
-                        <td>식품자원계량분석론</td>
-                        <td>김태영</td>
-                        <td>전공필수</td>
-                        <td>월 1, 2, 3</td>
-                        <td>452-303</td>
-                        <td><button type="button">시간표에 추가</button></td>
-                    </tr>
+                        <td><button type="button" onclick="addSubjectFromList()">시간표에 추가</button></td>
+                        </tr>
                 </table>
             </div>
         </section>
@@ -288,7 +149,7 @@
                 <div>Copyright 2023. 오합지졸 All rights reserved.</div>
             </div>
             <div id="footer-right">
-                <img src="{% static '../img/logo-white.png' %}" width="80">
+                <img src="../img/logo-white.png" width="80">
             </div>
         </footer>
     </body>

@@ -161,9 +161,24 @@ strong{
     font-weight: bold;
     font-size: 13px;
     padding: 2px;
-
 }
-  
+#div-class_category_table label:checked{
+    background-color: #FFFFFF;
+    color:#62D3DA;
+    border: 1.5px solid #62D3DA;
+    border-radius: 10px;
+    width: 32px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 2px;
+}
+/* input[type="checkbox"] {
+    appearance: none;
+} */
+/* input[type="checkbox"] label:checked {
+    background: #32e732;
+} */
 /* 카테고리 테이블 내 버튼 배경색의 hover */
 #div-class_category_table label:hover{
     background-color: #62D3DA;
@@ -181,11 +196,7 @@ strong{
     width: 80px;
     color:#62D3DA;
 }
-/* --------------------------------수정 필요--------------------------- */
-#div-class_category_table button :visited{
-    background-color: #40BBCA;
-    color: black;
-}
+
 /* 카테고리 테이블의 dropbox (년도 ,구분) */
 #div-class_category_table select{
     width: 200px;
@@ -220,8 +231,9 @@ strong{
     background-color: #D3F0F0;
     border-radius: 5px;
     padding: 5px;
-    width: auto;
-
+}
+#table-class_category{
+    width: 130px;
 }
 #div-class_list_table th{
     position: sticky;
