@@ -32,8 +32,7 @@ option{
     position: relative;
     z-index: 2;
     width: 400px;
-    height: 100vh;
-    min-height: 844px;
+    min-height: 100vh;
     padding: 40px;
     box-sizing: border-box;
     margin: auto;
@@ -112,6 +111,9 @@ option{
 }
 #filebox input::file-selector-button {
     display: none;
+}
+#update-form  :disabled {
+    background-color: rgba(0,0,0,0.1);
 }
 
 #update-form > input[type="submit"]{
