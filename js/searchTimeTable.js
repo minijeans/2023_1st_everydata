@@ -14,7 +14,8 @@ const tempSubjects = [
   {id: 2, name: "소프트웨어설계PBL", professor:"홍길동", category: "전공필수", subject_code:"2", time:"월2, 월3", room: "030-0304"},
   {id: 3, name: "데이터베이스", professor:"홍길동", category: "전공필수", subject_code: "3", time:"금1, 금2", room: "030-0304"},
   {id: 4, name: "데이터과학", professor:"홍길동", category: "전공필수", subject_code: "4", time:"월11, 월12", room: "030-0304"},
-  {id: 5, name: "컴퓨터네트워크", professor:"홍길동", category: "전공필수", subject_code: "5", time:"화6, 화7, 수3", room: "030-0304"}
+  {id: 5, name: "컴퓨터네트워크", professor:"홍길동", category: "전공필수", subject_code: "5", time:"화6, 화7, 수3", room: "030-0304"},
+  {id: 6, name: "환경과오염", professor: "김둘선", category: "균형교양(통합교양) 5영역(과학과 기술)", subject_code: "6", time: "월 4, 5", room: "024-0135"}
 ]
 
 const table = document.getElementById("div-class_list_table");
@@ -51,102 +52,62 @@ searchButton.addEventListener('click', function() {
   searchTimetable(searchText);
 });
 
+//현재날짜 기반------------------
+// 현재 날짜 기반으로 년도와 학기 출력
+var today = new Date();
+var year = today.getFullYear();
+var semester = today.getMonth() < 6 ? 1 : 2;
+var message = year + '년 ' + semester + '학기';
+
+document.getElementById('p-semester_date').innerHTML = message;
+
 
 
 //카테고리----------------------------------------------------------
-// 해당 테이블에서 선택된 조건들을 저장할 객체
-const selectedOptions = {
-  semester: null,
-  geCategory: null,
-  days: [],
-  hours: [],
-};
-
-// semester select element와 ge category select element에 대한 이벤트 리스너 등록
-document.getElementById('table-semester').addEventListener('change', (event) => {
-  selectedOptions.semester = event.target.value;
-  console.log(selectedOptions); // 선택된 조건 확인 (개발 시 디버깅용)
+// 카테고리 선택 이벤트 처리
+const categorySelect = document.getElementById("table-ge_category"); //검색하고자 하는 과목의 영역(교양이면 통교, 핵교, 2영역 등, 전공은 전선전필 등등)
+categorySelect.addEventListener("change", function() {
+  const selectedCategory = categorySelect.value;
+  
+  // 선택한 카테고리 값을 Python 파일로 전달하는 함수 호출
+  callPythonFunction(selectedCategory);
 });
 
-document.getElementById('table-ge_category').addEventListener('change', (event) => {
-  selectedOptions.geCategory = event.target.value;
-  console.log(selectedOptions); // 선택된 조건 확인 (개발 시 디버깅용)
-});
+// 요일과 교시 선택 이벤트 처리
+const dayCheckboxes = document.querySelectorAll(".table-select_day");  //과목 요일
+const hourCheckboxes = document.querySelectorAll(".table-select_hour"); //과목 교시
 
-// day checkboxes에 대한 이벤트 리스너 등록
-const dayCheckboxes = document.querySelectorAll('.table-select_day');
-dayCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener('change', (event) => {
-    const day = event.target.value;
-    if (event.target.checked) {
-      selectedOptions.days.push(day);
-    } else {
-      const index = selectedOptions.days.indexOf(day);
-      if (index > -1) {
-        selectedOptions.days.splice(index, 1);
+// 선택한 내용을 객체로 만들어 Python 파일로 전달하는 함수 호출
+function sendDataToPython() {
+  const selectedDays = Array.from(dayCheckboxes)
+    .filter(checkbox => checkbox.checked)
+    .map(checkbox => checkbox.value);
+  
+  const selectedHours = Array.from(hourCheckboxes)
+    .filter(checkbox => checkbox.checked)
+    .map(checkbox => checkbox.value);
+  
+  const data = {
+    days: selectedDays,
+    hours: selectedHours
+  };
+  
+  // data 객체를 Python 파일로 전달하는 함수 호출. data 안에는 선택한 요일과 선택한 시간이 들어있습니다
+  callPythonFunction(data);
+}
+
+// Python 파일 호출 함수
+function callPythonFunction(data) {
+  const pythonFile = "../python/skatjfls_recommend.py"; // Python 파일 경로. 아무거나 넣은거라 수정해야함@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  // Python 파일 호출 코드 작성 (예시: AJAX 사용)
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", pythonFile, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(xhr.responseText); // Python 파일에서 반환된 응답 출력
       }
-    }
-    console.log(selectedOptions); // 선택된 조건 확인 (개발 시 디버깅용)
-  });
-});
-
-// hour checkboxes에 대한 이벤트 리스너 등록
-const hourCheckboxes = document.querySelectorAll('.table-select_hour');
-hourCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener('change', (event) => {
-    const hour = parseInt(event.target.value, 10);
-    if (event.target.checked) {
-      selectedOptions.hours.push(hour);
-    } else {
-      const index = selectedOptions.hours.indexOf(hour);
-      if (index > -1) {
-        selectedOptions.hours.splice(index, 1);
-      }
-    }
-    console.log(selectedOptions); // 선택된 조건 확인 (개발 시 디버깅용)
-  });
-});
-
-// 검색 버튼 클릭 이벤트
-document.getElementById('form-search_button').addEventListener('click', function () {
-  // 검색 결과 초기화
-  clearTable();
-
-  // 선택한 년도와 영역 가져오기
-  const selectedYear = document.getElementById('table-semester').value.split('-')[0];
-  const selectedCategory = document.getElementById('table-ge_category').value;
-
-  // 선택한 요일과 교시 가져오기
-  const selectedDays = getSelectedCheckboxes(document.getElementsByName('table-select_day'));
-  const selectedHours = getSelectedCheckboxes(document.getElementsByClassName('table-select_hour'));
-
-  // 검색어 가져오기
-  const searchText = document.getElementById('form-search_text').value;
-
-  // 검색 결과 필터링
-  const filteredResults = timeTable.filter(course => {
-    // 년도와 영역이 일치하지 않으면 건너뜀
-    if (course.year != selectedYear || course.category != selectedCategory) return false;
-
-    // 선택한 요일 중 수업이 없는 요일이 있으면 건너뜀
-    const courseDays = course.day.split(',');
-    for (const day of selectedDays) {
-      if (!courseDays.includes(day)) return false;
-    }
-
-    // 선택한 교시 중 수업이 없는 교시가 있으면 건너뜀
-    const courseHours = course.hour.split(',');
-    for (const hour of selectedHours) {
-      if (!courseHours.includes(hour)) return false;
-    }
-
-    // 검색어가 포함되어 있지 않으면 건너뜀
-    if (!course.title.includes(searchText)) return false;
-
-    // 모든 조건을 만족하면 true 반환
-    return true;
-  });
-
-  // 검색 결과 출력
-  printTable(filteredResults);
-});
+  };
+  xhr.send(JSON.stringify(data));
+}

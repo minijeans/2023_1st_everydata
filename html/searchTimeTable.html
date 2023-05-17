@@ -21,7 +21,7 @@
             <nav>
                 <ul id="nav-menu">
                     <li><a href="./manageCredit.html">학점 관리</a></li>
-                    <li><a href="./scholarshipInformation.html">대학 정보</a></li>
+                    <li><a href="./scholarshipInformation.html">장학 정보</a></li>
                     <li>
                         <a style="color: black;">강의</a>
                         <ul id="nav-menu_sub">
@@ -55,38 +55,30 @@
                     <tr>
                         <th>년도</th>
                         <td colspan="9">
-                            <select id="table-semester">
-                                <option>2023-1</option>
-                                <option>2022-2</option>
-                                <option>2022-1</option>
-                            </select>
+                            <div id="p-semester_date"></div> 
                         </td>
                         <th>구분</th>
                         <td>
                             <select id="table-ge_category">
                                 <optgroup label="교양">
-                                    <optgroup label="통합교양">
-                                        <option>1영역</option>
-                                        <option>2영역</option>
-                                        <option>3영역</option>
-                                        <option>4영역</option>
-                                        <option>5영역</option>
-                                        <option>6영역</option>
-                                        <option>7영역</option>
-                                        <option>8영역</option>
-                                    </optgroup>
-                                    <optgroup label="핵심교양">
-                                        <option>영어</option>
-                                        <option>글쓰기</option>
-                                        <option>디지털 리터러시</option>
-                                    </optgroup>
-                                    <optgroup label="기초교양">
-                                        <option>외국어</option>
-                                        <option>인문사회</option>
-                                        <option>자연계열</option>
-                                    </optgroup>
-                                </optgroup>
-                                <optgroup label="전공">
+                                    <option><b>*--통합교양--*</b></option>
+                                    <option>1영역</option>
+                                    <option>2영역</option>
+                                    <option>3영역</option>
+                                    <option>4영역</option>
+                                    <option>5영역</option>
+                                    <option>6영역</option>
+                                    <option>7영역</option>
+                                    <option>8영역</option>
+                                    <option><b>*--핵심교양--*</b></option>
+                                    <option>영어</option>
+                                    <option>글쓰기</option>
+                                    <option>디지털 리터러시</option>
+                                    <option><b>*--기초교양--*</b></option>
+                                    <option>외국어</option>
+                                    <option>인문사회</option>
+                                    <option>자연계열</option>
+                                    <option><b>*--전공--*</b></option>
                                     <option>전공선택</option>
                                     <option>전공필수</option>
                                     <option>교직</option>
@@ -129,16 +121,6 @@
                         <th><div>강의실</div></th>
                         <th><div>시간표 추가</div></th>
                     </tr>
-                    <tr>
-                        <td>환경과 오염</td>
-                        <td>김둘선</td>
-                        <td>균형교양(통합교양)
-                            5영역(과학과 기술)</td>
-                        <td>0</td>
-                        <td>월 1, 2</td>
-                        <td>024-0260</td>
-                        <td><button type="button" onclick="addSubjectFromList()">시간표에 추가</button></td>
-                        </tr>
                 </table>
             </div>
         </section>
