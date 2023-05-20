@@ -67,7 +67,6 @@ document.getElementById("input-recommend_submit").addEventListener("click", func
     if (!selectedDay) alertMessage += "1번 ";
     if (fillCredit === "") alertMessage += "2번 ";
     if (selectedClasses.length === 0) alertMessage += "3번 ";
-    alert(alertMessage.trim() + " 문항을 입력해주세요.");
   } else {
     location.href = "recommendResult.html";
   }
@@ -75,16 +74,18 @@ document.getElementById("input-recommend_submit").addEventListener("click", func
 
 document.getElementById('input-recommend_submit').onclick = function() {
   // 필수 입력 항목이 모두 입력되었는지 확인
-  if (document.querySelector('input[name="day"]:checked') && document.getElementById('div-fill_credit').value && document.querySelector('input[name="balanceClass"]:checked')) {
+  if (document.querySelector('input[name="day"]:checked') && document.getElementById('div-fill_credit').value && document.querySelectorAll('input[type="checkbox"]:checked').length > 0) {
     // 필수 입력 항목이 모두 입력된 경우, 강의 추천 결과 페이지로 이동
     location.href='recommendResult.html';
-  } else if (!document.querySelector('input[name="day"]:checked') || !document.getElementById('div-fill_credit').value || !document.querySelector('input[name="balanceClass"]:checked')) {
+  } else {
     // 필수 입력 항목 중 입력되지 않은 항목이 있는 경우, alert 메시지 띄우기
     var alertMessage = "";
     if (!document.querySelector('input[name="day"]:checked')) alertMessage += "1번 ";
     if (!document.getElementById('div-fill_credit').value) alertMessage += "2번 ";
-    if (!document.querySelector('input[name="balanceClass"]:checked')) alertMessage += "3번 ";
+    if (document.querySelectorAll('input[name="balanceClass"]:checked').length === 0) alertMessage += "3번 ";
     alert(alertMessage.trim() + " 문항을 입력해주세요.");
+    return false; // 폼 제출 방지
   }
 };
+
 

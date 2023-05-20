@@ -49,7 +49,6 @@
                     <button id="form-search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
-            <!-- 모든 항목을 필수 입력 요소로 지정(입력하지 않은 경우 경고문구 출력, 하나라도 입력되지 않았으면 강의 추천 받기가 넘어가지 않게.) -->
             <div id="section-class_category">
                 <table id="div-class_category_table">
                     <tr>
@@ -61,27 +60,30 @@
                         <td>
                             <select id="table-ge_category">
                                 <optgroup label="교양">
-                                    <option><b>*--통합교양--*</b></option>
-                                    <option>1영역</option>
-                                    <option>2영역</option>
-                                    <option>3영역</option>
-                                    <option>4영역</option>
-                                    <option>5영역</option>
-                                    <option>6영역</option>
-                                    <option>7영역</option>
-                                    <option>8영역</option>
-                                    <option><b>*--핵심교양--*</b></option>
-                                    <option>영어</option>
-                                    <option>글쓰기</option>
-                                    <option>디지털 리터러시</option>
-                                    <option><b>*--기초교양--*</b></option>
-                                    <option>외국어</option>
-                                    <option>인문사회</option>
-                                    <option>자연계열</option>
-                                    <option><b>*--전공--*</b></option>
-                                    <option>전공선택</option>
-                                    <option>전공필수</option>
-                                    <option>교직</option>
+                                    <option value="교양">교양</option>
+                                    <option value="통합교양"><b>*--통합교양--*</b></option>
+                                    <option value="문학과문화">1영역(문학과 문화)</option>
+                                    <option value="역사와철학">2영역(역사와 철학)</option>
+                                    <option value="인간과사회">3영역(인간과 사회)</option>
+                                    <option value="생명과환경">4영역(생명과 환경)</option>
+                                    <option value="과학과기술">5영역(과학과 기술)</option>
+                                    <option value="예술과체육">6영역(예술과 체육)</option>
+                                    <option value="융복합영역">7영역(융복합 영역)</option>
+                                    <option value="진로와개척">8영역(진로와 개척)</option>
+                                    <option value="핵심교양"><b>*--핵심교양--*</b></option>
+                                    <option value="영어">영어</option>
+                                    <option value="글쓰기">글쓰기</option>
+                                    <option value="디지털리터러시">디지털 리터러시</option>
+                                    <option value="기초교양"><b>*--기초교양--*</b></option>
+                                    <option value="외국어">외국어</option>
+                                    <option value="인문">인문사회</option>
+                                    <option value="자연">자연계열</option>
+                                </optgroup>
+                                <optgroup label="전공">
+                                    <option value="전공"><b>*--전공--*</b></option>
+                                    <option value="전공선택">전공선택</option>
+                                    <option value="전공필수">전공필수</option>
+                                    <option value="교직">교직</option>
                                 </optgroup>
                             </select>
                         </td>

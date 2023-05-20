@@ -145,9 +145,6 @@ p>strong{
     width: 300px;
     height: 80px;
     font-size: 30px;
-    margin-left: 500px;
-    margin-top: 20px;
-    margin-bottom: 20px;
     background-color: #62D3DA;
     border-radius: 10px;
     color: white;
@@ -155,15 +152,13 @@ p>strong{
     display: block;
     float: left;
     font-weight: bold;
+    margin-right: 10px;
 }
 /* 시간표에 추가 버튼 */
 #section-add_in_time_table{
     width: 300px;
     height: 80px;
     font-size: 30px;
-    margin-right: 500px;
-    margin-top: 20px;
-    margin-bottom: 20px;
     background-color: #62D3DA;
     border-radius: 10px;
     color: white;
@@ -171,6 +166,13 @@ p>strong{
     display:block;
     float: right;
     font-weight: bold;
+    margin-left: 10px;
+} 
+#section-button_group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
 }
 /* 추천된 과목의 강의명 ex)환경과 오염 */
 #recommendedClassName>strong{
