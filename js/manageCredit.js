@@ -1,4 +1,5 @@
 // 임의의 데이터베이스
+//남은 학점 DB
 const data = [
   { area: 1, credit: 2, completed: true },
   { area: 2, credit: 3, completed: true },
@@ -8,6 +9,26 @@ const data = [
   { area: 6, credit: 2, completed: false },
   { area: 7, credit: 2, completed: false },
   { area: 8, credit: 1, completed: false }
+];
+
+//개설전공 DB
+const major_data=[
+  { grade: 1, category: "전필", credit: 1, subject_name: "C프로그래밍", major:"컴퓨터과학과"},
+  { grade: 1, category: "전필", credit: 3, subject_name: "식품자원경제학개론", major: "식품자원경제학과"},
+  { grade: 1, category: "전필", credit: 1, subject_name: "C프로그래밍", major:"컴퓨터과학과"},
+  { grade: 1, category: "전필", credit: 3, subject_name: "식품자원경제학개론", major: "식품자원경제학과"},
+  { grade: 1, category: "전필", credit: 1, subject_name: "C프로그래밍", major:"컴퓨터과학과"},
+  { grade: 1, category: "전필", credit: 3, subject_name: "식품자원경제학개론", major: "식품자원경제학과"},
+  { grade: 1, category: "전필", credit: 1, subject_name: "C프로그래밍", major:"컴퓨터과학과"},
+  { grade: 1, category: "전필", credit: 3, subject_name: "식품자원경제학개론", major: "식품자원경제학과"},
+  { grade: 1, category: "전필", credit: 1, subject_name: "C프로그래밍", major:"컴퓨터과학과"},
+  { grade: 1, category: "전필", credit: 3, subject_name: "식품자원경제학개론", major: "식품자원경제학과"},
+  { grade: 1, category: "전필", credit: 1, subject_name: "C프로그래밍", major:"컴퓨터과학과"},
+  { grade: 1, category: "전필", credit: 3, subject_name: "식품자원경제학개론", major: "식품자원경제학과"},
+  { grade: 1, category: "전필", credit: 1, subject_name: "C프로그래밍", major:"컴퓨터과학과"},
+  { grade: 1, category: "전필", credit: 3, subject_name: "식품자원경제학개론", major: "식품자원경제학과"},
+  { grade: 1, category: "전필", credit: 1, subject_name: "C프로그래밍", major:"컴퓨터과학과"},
+  { grade: 1, category: "전필", credit: 3, subject_name: "식품자원경제학개론", major: "식품자원경제학과"}
 ];
 
 // 졸업요건 충족했는지 여부를 판단하는 함수
@@ -195,40 +216,74 @@ var message = year + '년 ' + semester + '학기에 개설된 전공';
 
 document.getElementById('p-semester_date').innerHTML = message;
 
-//학기별 개설 전공을 데이터베이스(mysql에서 가져오기)
+// 학기별 개설 전공을 데이터베이스(mysql에서 가져오기)--------------------
+const user_major = "식품자원경제학과"; // 사용자의 전공
+
 // 테이블 요소 선택
 const table = document.getElementById('div-search_major');
 
 // 테이블 헤더 추가
-const headerRow = table.insertRow(); // 테이블에다가 새로운 행 추가하기
-const header1 = headerRow.insertCell(0); // 행에 새로운 셀 추가(각각 grade, category, credit, subject_name을 넣을거임)
+const headerRow = table.insertRow();
+const header1 = headerRow.insertCell(0);
 const header2 = headerRow.insertCell(1);
 const header3 = headerRow.insertCell(2);
 const header4 = headerRow.insertCell(3);
-header1.innerHTML = '학년'; // 각 셀에 텍스트 추가
+const header5 = headerRow.insertCell(4);
+header1.innerHTML = '학년';
 header2.innerHTML = '이수구분';
 header3.innerHTML = '학점';
 header4.innerHTML = '교과목명';
+header5.innerHTML = 'V';
 
 // 데이터 추가
-for (let i = 0; i < data.length; i++) {
-  const grade = data[i].grade; // 현재 데이터의 학년 정보
-  const category = data[i].category; // 현재 데이터의 이수구분 정보
-  const credit = data[i].credit; // 현재 데이터의 학점 정보
-  const subject_name = data[i].subject_name; // 현재 데이터의 교과목명 정보
+for (let i = 0; i < major_data.length; i++) {
+  const grade = major_data[i].grade;
+  const category = major_data[i].category;
+  const credit = major_data[i].credit;
+  const subject_name = major_data[i].subject_name;
+  const major = major_data[i].major;
 
-  // 새로운 행 추가
-  const row = table.insertRow();
-
-  // 각 셀에 데이터 추가
-  const cell1 = row.insertCell(0);
-  const cell2 = row.insertCell(1);
-  const cell3 = row.insertCell(2);
-  const cell4 = row.insertCell(3);
-  cell1.innerHTML = grade;
-  cell2.innerHTML = category;
-  cell3.innerHTML = credit;
-  cell4.innerHTML = subject_name;
+  if (major === user_major) {
+    const row = table.insertRow();
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+    const cell3 = row.insertCell(2);
+    const cell4 = row.insertCell(3);
+    const cell5 = row.insertCell(4);
+    cell1.textContent = grade;
+    cell2.textContent = category;
+    cell3.textContent = credit;
+    cell4.textContent = subject_name;
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.value = subject_name;
+    cell5.appendChild(checkbox);
+  }
 }
+
+
+
+//이수내역확인표 불러오기---------------------------------
+
+const button = document.getElementById("section-origin_table");
+button.addEventListener("click", function() {
+  // 이수내역확인표 원본 보기 버튼 클릭 시 동작하는 이벤트 핸들러
+
+  // 서버에 PDF 파일 요청을 보내는 부분
+  fetch("/get_pdf_url") // 서버의 엔드포인트 URL에 맞게 수정해야 합니다.
+    .then(response => response.text())
+    .then(pdfUrl => {
+      // 서버로부터 받은 PDF 파일의 URL을 변수 pdfUrl에 저장합니다.
+
+      // 새 창에서 PDF 파일 열기
+      window.open(pdfUrl, "_blank");
+      // window.open() 함수를 사용하여 새 창을 열고, pdfUrl을 URL로 지정하여 PDF 파일을 엽니다.
+      // "_blank"는 새 창에서 열기 위한 타겟 속성입니다.
+    })
+    .catch(error => {
+      // 요청이 실패한 경우, 콘솔에 에러 메시지를 출력합니다.
+      console.log("Error:", error);
+    });
+});
 
 
