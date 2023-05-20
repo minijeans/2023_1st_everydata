@@ -143,6 +143,183 @@ const addSubjectToTimetable = (subject) => {
   }
 };
 
+//시간표 강의 목록
+let subjects = [];
+//시간표에 강의 추가
+function addSubjectToTimetable(subject) {
+  console.log("시간표에 강의 추가");
+  
+  const dayTimePairs = subject.time.split(",");
+  console.log(document.getElementById("main-timetable")); //이부분에서 계속 null 나옴.. html이 두개라 그런가 싶기도 한데 어케 고쳐야될지 모르겠어요..ㅠ
+  const mainTimetable = document.querySelector("#main-timetable");
+  if (mainTimetable) {
+    for (const pair of dayTimePairs) {
+      const [day, time] = pair.split("");
+      console.log(day, time);
+      console.log(document.querySelector("#main-timetable"));
+      const cell = document.querySelector(`#main-timetable td[data-day="${day}"][data-time="${time}"]`);
+      console.log(cell);
+      if (cell.children.length > 0) {
+        alert("해당시간에 이미 다른 강의가 있습니다.");
+        return;
+      };
+      const div = document.createElement("div");
+      div.textContent = subject.name;
+      cell.appendChild(div);
+    }
+    subjects.push(subject);
+    console.log(subjects);
+  }
+};
+
+// 강의 추가 요청을 서버에 전송하는 함수
+const addSubjectToServer = (subject) => {
+  // 서버 URL
+  const url = '/api/addSubject';
+
+  // AJAX 요청
+  $.ajax({
+    url: url,
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(subject),
+    success: function (response) {
+      // 
+      console.log('강의 추가 요청이 성공적으로 전송되었습니다.');
+    },
+    error: function (xhr, status, error) {
+      console.error('강의 추가 요청이 실패하였습니다.');
+    }
+  });
+};
+
+//강의목록에서 강의 추가 : '시간표에 추가' 버튼 onclick or js파일에서 바로 button onclick 되게
+const addSubjectFromList = (id) => {
+  console.log('강의 추가');
+  const subject = tempSubjects.find(subject => subject.id === id);
+  if (subject) {
+    addSubjectToSever(subject);
+  } else {
+    console.log('해당 강의를 찾을 수 없습니다.');
+  }
+};
+
+// 시간표에 강의를 추가하는 함수
+const addSubjectToTimetable = (subject) => {
+  const dayTimePairs = subject.time.split(", ");
+  let mergedRows = 1; // 통합된 행 수
+  let mergedRowStart = null; // 통합된 행 시작 인덱스
+
+  for (let i = 0; i < dayTimePairs.length; i++) {
+    const [day, time] = dayTimePairs[i].split(/([^\uAC00-\uD7A3]+)/);
+    const cell = document.querySelector(`#main-timetable td[data-day="${day}"][data-time="${time}"]`);
+    if (cell.children.length > 0) {
+      return;
+    }
+    if (i > 0) {
+      const prevSubject = dayTimePairs[i - 1];
+      const [prevDay, prevTime] = prevSubject.split(/([^\uAC00-\uD7A3]+)/);
+
+      if (day === prevDay && Number(time) === Number(prevTime) + 1) {
+        mergedRows++;
+        continue;
+      }
+    }
+
+    const div = document.createElement("div");
+    div.textContent = subject.name;
+
+    // 통합된 행인 경우, 이전 행들 삭제 및 월1 셀의 ROWSPAN 설정
+    if (mergedRows > 1) {
+      const startRowIndex = mergedRowStart.parentNode.rowIndex;
+      const rowspan = mergedRows;
+      const prevRow = mergedRowStart.parentNode;
+
+      for (let j = 1; j < mergedRows; j++) {
+        const currentRow = prevRow.nextElementSibling;
+        currentRow.cells[startRowIndex].remove();
+      }
+
+      mergedRowStart.setAttribute("rowspan", rowspan);
+    }
+
+    cell.appendChild(div);
+
+    // 빈 행 삭제
+    const currentRow = cell.parentNode;
+    const nextRow = currentRow.nextElementSibling;
+    if (nextRow && nextRow.childElementCount === 1 && nextRow.firstElementChild.textContent === "") {
+      nextRow.remove();
+    }
+
+    mergedRows = 1;
+    mergedRowStart = cell;
+  }
+};
+applyBackgroundForMergedCells(cell, mergedRows, color);
+//
+const applyBackgroundForMergedCells = (startCell, rowspan, color) => {
+  const startCellIndex = startCell.cellIndex;
+  const startRowIndex = startCell.parentNode.rowIndex;
+
+  const table = startCell.closest("table");
+
+  for (let i = 0; i < rowspan; i++) {
+    const currentRowIndex = startRowIndex + i;
+    const currentRow = table.rows[currentRowIndex];
+    if (currentRow) {
+      const rowCells = Array.from(currentRow.cells).slice(startCellIndex);
+      rowCells.forEach((cell) => {
+        cell.style.backgroundColor = color;
+      });
+    }
+  }
+};
+
+const isLastSubject = i === dayTimePairs.length - 1; //마지막 교시인지 확인
+
+    //연속된 강의면 mergedRows++
+    if (i > 0) {
+      const prevSubject = dayTimePairs[i - 1];
+      const [prevDay, prevTime] = prevSubject.split(/([^\uAC00-\uD7A3]+)/);
+      const currentTime = Number(time);
+      const prevTimeEnd = Number(prevTime) + 1;
+      if (day === prevDay && currentTime <= prevTimeEnd) {
+        mergedRows++;
+        if (!isLastSubject) {
+          continue;
+        }
+      }
+    }
+
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <div style="font-weight: bold; font-size: 15px; ">${subject.name}</div>
+      <div>${subject.professor}</div>
+      <div>${subject.room}</div>
+    `;
+
+  
+    //연속된 강의면 rowspan 속성 설정 및 셀 삭제
+    if (mergedRows > 1) {
+      const startCellIndex = mergedRowStart.cellIndex;
+      const rowspan = mergedRows;
+      const prevRow = mergedRowStart.parentNode;
+
+      for (let j = 1; j < mergedRows; j++) {
+        const currentRowIndex = prevRow.rowIndex + j;
+        const currentRow = timetable.rows[currentRowIndex];
+        const cellToRemove = currentRow.cells[startCellIndex];
+        if (cellToRemove) {
+          cellToRemove.remove();
+        }
+      }
+      mergedRowStart.setAttribute("rowspan", rowspan);
+    }
+    mergedRows = 1;
+    mergedRowStart = cell;
+
+
   <!-- <tr>
                             <th> </th>
                             <th>월</th>

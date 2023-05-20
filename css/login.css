@@ -87,6 +87,11 @@ body{
     background-color: #ffffff;
     color: #A5A5A5;
 }
+
+#save-id {
+    accent-color: #62D3DA;
+}
+
 #login-form input[type="checkbox"] + label{
     cursor: pointer;
     padding-left: 26px;
@@ -94,6 +99,8 @@ body{
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+
 #login-signup_pwsearch {
     background-color: #ffffff;
     display: flex;

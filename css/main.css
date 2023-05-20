@@ -87,8 +87,11 @@ main{
     vertical-align: top;
 }
 #main-timetable td{
-    width: 105px;
+    padding: 0 2px;
+    width: 101px;
     height: 70px;
+    font-size: 12.5px;
+    overflow: hidden;
 }
 #main-timetable{
     margin: auto;
@@ -97,7 +100,7 @@ main{
 }
 
 .has-saturday td{
-    width: 87.5px !important;
+    width: 83.5px !important;
 }
 
 #main-profile_top {
