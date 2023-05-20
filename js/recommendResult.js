@@ -1,34 +1,93 @@
+const results = [
+  {
+    title: "환경과 오염",
+    professor: "김둘선",
+    category: "균형교양(통합교양) - 5영역(과학과 기술)",
+    time: "월 1,2",
+    classroom: "024-0260"
+  },
+  {
+    title: "사회학개론",
+    professor: "이네모",
+    category: "핵심교양(역량교양) - 사회과학",
+    time: "화 3,4",
+    classroom: "013-0203"
+  },
+  {
+    title: "글쓰기의 기초",
+    professor: "박글",
+    category: "기초교양",
+    time: "수 2,3",
+    classroom: "025-0312"
+  },
+  {
+    title: "문화와 예술",
+    professor: "김예술",
+    category: "균형교양(통합교양) - 1영역(문학과 문화)",
+    time: "목 4,5",
+    classroom: "032-0410"
+  },
+  {
+    title: "디지털 리터러시",
+    professor: "정디지",
+    category: "핵심교양(역량교양) - 정보문화",
+    time: "금 1,2",
+    classroom: "009-0156"
+  }
+];
+
 // 강의 추천 결과를 화면에 표시하는 함수
 function displayResults(results) {
-  const resultContainer = document.getElementById("result-container");
-  
+  const resultContainer = document.getElementById("section-recommend_list");
+
   // 결과 컨테이너를 비웁니다.
   resultContainer.innerHTML = "";
-  
+
   // 추천 결과에 따라 각각의 요소를 생성해서 컨테이너에 추가합니다.
   results.forEach(function(result) {
     const title = result.title;
-    const description = result.description;
-    const link = result.link;
-    
+    const professor = result.professor;
+    const category = result.category;
+    const time = result.time;
+    const classroom = result.classroom;
+
     // 결과를 보여주는 HTML 요소를 생성합니다.
     const resultElement = document.createElement("div");
+    resultElement.id = "div-recommended_class";
+
+    const checkboxElement = document.createElement("input");
+    checkboxElement.type = "checkbox";
+    checkboxElement.name = "recommendedClassName";
+    checkboxElement.value = title; 
+
     const titleElement = document.createElement("h3");
-    const descriptionElement = document.createElement("p");
-    const linkElement = document.createElement("a");
-    
+    const professorElement = document.createElement("p");
+    const categoryElement = document.createElement("p");
+    const timeElement = document.createElement("p");
+    const classroomElement = document.createElement("p");
+
     titleElement.innerText = title;
-    descriptionElement.innerText = description;
-    linkElement.href = link;
-    linkElement.innerText = "Go to course page";
-    
+    professorElement.innerText = "교수: " + professor;
+    categoryElement.innerText = "구분: " + category;
+    timeElement.innerText = "시간: " + time;
+    classroomElement.innerText = "강의실: " + classroom;
+
+    resultElement.appendChild(checkboxElement);
     resultElement.appendChild(titleElement);
-    resultElement.appendChild(descriptionElement);
-    resultElement.appendChild(linkElement);
-    
+    resultElement.appendChild(professorElement);
+    resultElement.appendChild(categoryElement);
+    resultElement.appendChild(timeElement);
+    resultElement.appendChild(classroomElement);
+
     resultContainer.appendChild(resultElement);
   });
 }
+
+displayResults(results);
+
+
+
+
 
 // 강의 추천을 실행하는 함수
 function recommendCourses() {

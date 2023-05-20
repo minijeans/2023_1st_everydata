@@ -140,7 +140,7 @@ strong{
 /* 카테고리 전체 div */
 #section-class_category{
     width: 90%;
-    height: 14%;
+    height: auto;
     background-color: #FFFFFF;
     border: 1px solid #62D3DA;
     border-radius: 10px;
@@ -157,48 +157,19 @@ strong{
 #div-class_category_table label{
     background-color: #FFFFFF;
     color:#62D3DA;
-    border: 1.5px solid #62D3DA;
-    border-radius: 10px;
     width: 32px;
     height: 30px;
     font-weight: bold;
-    font-size: 13px;
-    padding: 2px;
+    font-size: 15px;
 }
 
-#div-class_category_table input{
-    display: none;
-}
-
-input[type="checkbox"].table-select_day:checked + label {
-    background-color: #FFFFFF;
-    color: #62D3DA;
-    border: 1.5px solid #62D3DA;
-    border-radius: 10px;
-    width: 32px;
-    height: 30px;
-    font-weight: bold;
-    font-size: 13px;
-    padding: 2px;
-  }
-  
-  
-/* input[type="checkbox"] {
-    appearance: none;
-} */
-/* input[type="checkbox"] label:checked {
-    background: #32e732;
-} */
 /* 카테고리 테이블 내 버튼 배경색의 hover */
 #div-class_category_table label:hover{
     background-color: #62D3DA;
     color: white;
+    border-radius: 5px;
 }
-#div-class_category_table input:visited {
-  background-color: #62D3DA;
-  color: white;
 
-}
 
   
 /* 카테고리 테이블의 td(년도, 요일 등등) */
