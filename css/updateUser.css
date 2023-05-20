@@ -109,6 +109,7 @@ option{
     line-height: 30px;
     margin: 3px;
 }
+
 #filebox input::file-selector-button {
     display: none;
 }
@@ -122,5 +123,12 @@ option{
     height: 38px;
     background-color: #62D3DA;
     margin-top: 15px;
+    border: 0px;
+}
+#update-form > input[type="button"]{
+    color: #ffffff;
+    font-size: 16px;
+    height: 38px;
+    background-color: #D9D9D9;
     border: 0px;
 }

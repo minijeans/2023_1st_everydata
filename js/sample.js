@@ -25,36 +25,7 @@ tempSubjects.forEach(subjects => {
   table.appendChild(tr);
 });
 
-//시간표 강의 목록
-let subjects = [];
-//시간표에 강의 추가
-function addSubjectToTimetable(subject) {
-  console.log("시간표에 강의 추가");
-  
-  const dayTimePairs = subject.time.split(",");
-  console.log(document.getElementById("main-timetable")); //이부분에서 계속 null 나옴.. html이 두개라 그런가 싶기도 한데 어케 고쳐야될지 모르겠어요..ㅠ
-  const mainTimetable = document.querySelector("#main-timetable");
-  if (mainTimetable) {
-    for (const pair of dayTimePairs) {
-      const [day, time] = pair.split("");
-      console.log(day, time);
-      console.log(document.querySelector("#main-timetable"));
-      const cell = document.querySelector(`#main-timetable td[data-day="${day}"][data-time="${time}"]`);
-      console.log(cell);
-      if (cell.children.length > 0) {
-        alert("해당시간에 이미 다른 강의가 있습니다.");
-        return;
-      };
-      const div = document.createElement("div");
-      div.textContent = subject.name;
-      cell.appendChild(div);
-    }
-    subjects.push(subject);
-    console.log(subjects);
-  }
-};
-
-// 강의 추가 요청을 서버에 전송하는 함수
+// 서버에 강의 추가 요청 전송
 const addSubjectToServer = (subject) => {
   // 서버 URL
   const url = '/api/addSubject';
@@ -66,7 +37,6 @@ const addSubjectToServer = (subject) => {
     contentType: 'application/json',
     data: JSON.stringify(subject),
     success: function (response) {
-      // 
       console.log('강의 추가 요청이 성공적으로 전송되었습니다.');
     },
     error: function (xhr, status, error) {
@@ -75,18 +45,61 @@ const addSubjectToServer = (subject) => {
   });
 };
 
-//강의목록에서 강의 추가 : '시간표에 추가' 버튼 onclick or js파일에서 바로 button onclick 되게
-const addSubjectFromList = (id) => {
+// 서버에서 강의 목록 가져오기
+const getSubjectsFromServer = () => {
+  // 서버 URL
+  const url = '/api/getSubjects';
+
+  return $.ajax({
+    url: url,
+    type: 'GET',
+    success: function (subjects) {
+      return subjects;
+    },
+    error: function (xhr, status, error) {
+      console.error('강의 목록을 가져오는 도중 오류가 발생하였습니다.', error);
+      return [];
+    }
+  });
+};
+
+// 이미 추가된 강의인지 확인하는 함수
+const isAlreadyAdded = async (subject) => {
+  const subjects = await getSubjectsFromServer();
+  const alreadyAdded = subjects.find((addedSubject) => addedSubject.id === subject.id);
+  return alreadyAdded !== undefined;
+};
+
+// 강의 시간 충돌 여부 확인하는 함수
+const isTimeConflict = async (day, time) => {
+  const subjects = await getSubjectsFromServer();
+  const cell = subjects[day][time];
+  return cell && cell.length > 0;
+};
+
+// 강의목록에서 강의 추가
+const addSubjectFromList = async (id) => {
   console.log('강의 추가');
-  const subject = tempSubjects.find(subject => subject.id === id);
+  const subject = tempSubjects.find((subject) => subject.id === id);
   if (subject) {
-    addSubjectToSever(subject);
+    const dayTimePairs = subject.time.split(", ");
+
+    for (let i = 0; i < dayTimePairs.length; i++) {
+      const [day, time] = dayTimePairs[i].split(/([^\uAC00-\uD7A3]+)/);
+
+      const isAdded = await isAlreadyAdded(subject);
+      if (isAdded) {
+        alert('이미 추가된 강의입니다.');
+      } else {
+        const isConflict = await isTimeConflict(day, time);
+        if (isConflict) {
+          alert('해당 시간에 이미 다른 강의가 있습니다.');
+        } else {
+          addSubjectToServer(subject);
+        }
+      }
+    }
   } else {
     console.log('해당 강의를 찾을 수 없습니다.');
   }
-};
-
-if (cell.children.length > 0) {
-  alert("해당시간에 이미 다른 강의가 있습니다."); //시간표에 추가 중간에 넣어야함
-  return;
-};
+}; 
