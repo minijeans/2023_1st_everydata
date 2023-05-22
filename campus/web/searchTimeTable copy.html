@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <section id="section-block">
+        <div id="div-class_box">
+            <p><strong style="color: black;">강의 > 강의목록</strong></p>
+        </div>
+        <div id="section-search_box">
+            <form id="div-search_time_table">
+                <input type="text" id="form-search_text" placeholder="강의명 검색">
+                <button type="button" id="form-search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <!-- 모든 항목을 필수 입력 요소로 지정(입력하지 않은 경우 경고문구 출력, 하나라도 입력되지 않았으면 강의 추천 받기가 넘어가지 않게.) -->
+        
+        <div id="section-class_category">
+            <form id="login-form" >
+                {% csrf_token %}
+                <table id="div-class_category_table">
+                    <tr>
+                        <th>년도</th>
+                        <td colspan="9">
+                            <select id="table-semester">
+                                <option>2023-1</option>
+                                <option>2022-2</option>
+                                <option>2022-1</option>
+                            </select>
+                        </td>
+                        <th>구분</th>
+                        <td>
+                            <select id="table-ge_category">
+                                <optgroup label="교양">
+                                    <optgroup label="통합교양">
+                                        <option>1영역</option>
+                                        <option>2영역</option>
+                                        <option>3영역</option>
+                                        <option>4영역</option>
+                                        <option>5영역</option>
+                                        <option>6영역</option>
+                                        <option>7영역</option>
+                                        <option>8영역</option>
+                                    </optgroup>
+                                    <optgroup label="핵심교양">
+                                        <option>영어</option>
+                                        <option>글쓰기</option>
+                                        <option>디지털 리터러시</option>
+                                    </optgroup>
+                                    <optgroup label="기초교양">
+                                        <option>외국어</option>
+                                        <option>인문사회</option>
+                                        <option>자연계열</option>
+                                    </optgroup>
+                                </optgroup>
+                                <optgroup label="전공">
+                                    <option>전공선택</option>
+                                    <option>전공필수</option>
+                                    <option>교직</option>
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- 요일은 하나만! -->
+                        <th>요일</th>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="mon" onclick="NoMultiChk(this)">월</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="tue" onclick="NoMultiChk(this)">화</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="wed" onclick="NoMultiChk(this)">수</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="thr" onclick="NoMultiChk(this)">목</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="fri" onclick="NoMultiChk(this)">금</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="sat" onclick="NoMultiChk(this)">토</label></td>
+                    </tr>
+                    <tr>
+                        <th>교시</th>
+                        <td><label><input type="checkbox" class="table-select_hour" value="1">1</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="2">2</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="3">3</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="4">4</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="5">5</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="6">6</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="7">7</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="8">8</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" value="9">9</label></td>
+                    </tr>
+                    <tr>
+                        <th><input type="submit" value="조건검색"></th>
+                        
+                    </tr>
+                    
+                </table>
+            </form>
+        </div>
+
+        <div id="section-class_list">
+            <table id="div-class_list_table">
+                <tr>
+                    <th width="250"><div>강의명</div></th>
+                    <th width="80"><div>교수</div></th>
+                    <th width="250"><div>구분</div></th>
+                    <th width="80"><div>시간</div></th>
+                    <th width="100"><div>강의실</div></th>
+                    <th width="100"><div>시간표 추가</div></th>
+                </tr>
+
+                {% for info in lectureInfo %}
+                <tr>
+                    <td>{{ info.lecture_name }}</td>
+                    <td>{{ info.professor }}</td>
+                    <td>{{ info.category }} {{ info.type }}</td>
+                    <td>{{ info.week }} {{ info.lecture_time }}</td>
+                    <td>{{ info.lecture_room }}</td>
+                    <td><button type="button">시간표에 추가</button></td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+        </div>
+
+        
+    </section>
+{% endblock %} 
+
+

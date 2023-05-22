@@ -1,0 +1,29 @@
+<!--이지민 작성-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link rel="icon" sizes="192x192" href="{% static './img/logo-green.png' %}">
+        <!-- 회원가입 페이지에서 사용하는 css, 자바스크립트 파일 -->
+        <link type="text/css" rel="stylesheet" href="{% static './css/login.css' %}">
+        <script type="text/javascript" defer src="% static ./js/signUp.js' %"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+        <!-- jquery 라이브러리 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>EVERYDATA</title>
+    </head>
+    <body>
+        <main>
+            <div class="login-top">
+                <div id="login-logo">
+                    <img src="{% static './img/logo-white.png' %}" alt="메인로고" height="30">
+                    <span>비밀번호 찾기</span>
+                </div>
+                <a href="{% url 'api:index' %}"><img src="{% static './img/login-gnu.png' %}" alt="지누" height="100px"></a>
+            </div>
+        </main>
+    </body>
+</html>

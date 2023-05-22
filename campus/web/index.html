@@ -1,0 +1,142 @@
+<!--이지민 작성-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link rel="icon" sizes="192x192" href="{% static './img/logo-green.png' %}">
+        <!-- 폰트 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <!-- 로그인 페이지에서 사용하는 css, 자바스크립트 파일 -->
+        <link type="text/css" rel="stylesheet" href="{% static './css/login.css' %}">
+        <!-- <script type="text/javascript" defer src="{% static './js/login.js' %}"></script> -->
+        <!-- jquery 라이브러리 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        
+        <title>EVERYDATA</title>
+    </head>
+    <body>
+
+        <!-- {% for value in todo %}
+            <div>
+                {% if value.title %}
+                    <h3>{{ value.title }}</h3>
+                    <h3>{{ value.description }}</h3>
+                    <h3>{{ value.complete }}</h3>
+                    <h3>{{ value.important }}</h3>
+                    <h3>{{ value.createdAt }}</h3>
+                    <h3>{{ value.updatedAt | date:'Y m d H i' }}</h3>
+                {% endif %}
+            </div>
+        {% endfor %} -->
+
+        <!-- <a href="{% url 'api:manageCredit' %}">manageCredit</a> 
+        <a href="{% url 'api:mypage' %}">mypage</a>
+
+        <a href="{% url 'api:recommendProcess' %}">recommendProcess</a> 
+        <a href="{% url 'api:recommendResult' %}">recommendResult</a>
+
+        <a href="{% url 'api:scholarship' %}">scholarshipInformation</a> 
+        <a href="{% url 'api:searchTime' %}">searchTimeTable</a>
+
+        <a href="{% url 'api:updateUser' %}">updateUser</a>  -->
+
+
+
+        <main>
+            <div class="login-top">
+                <div id="login-logo">
+                    <img src="{% static './img/logo-white.png' %}" alt="메인로고" height="30">
+                    <span>EVERYDATA</span>
+                </div>
+                <img src="{% static './img/login-gnu.png' %}" alt="지누" height="100px">
+            </div>
+            <div class="login-wrapper">
+                <h2>LOGIN</h2>
+                <form id="login-form" >
+                    {% csrf_token %}
+                    <input type="text" id="email" name="email" placeholder="아이디">
+                    <input type="password" id="password" name="password" placeholder="비밀번호">
+                    <label for="id-remember">
+                        <input type="checkbox" id="save-id">
+                        아이디 저장
+                    </label>
+                    <input type="submit" value="로그인">
+                </form>
+                <div id="login-signup_pwsearch">
+                    <a href="{% url 'account:signup' %}">회원가입</a> 
+                    <a href="{% url 'api:findpw' %}">비밀번호 찾기</a>
+
+                </div>
+            </div>
+        </main>
+
+        <script>
+            $(document).on('submit', '#login-form', function (e) {
+                event.preventDefault(); //폼 제출 이벤트 취소
+                // saveIDToLocalStorage(); // 아이디 저장 체크박스의 상태에 따라 localStorage에 아이디를 저장하거나 삭제
+
+                // const idIsEmpty = checkField('email', '이메일을 입력해주세요.');
+                // const passwordIsEmpty = checkField('password', '비밀번호를 입력해주세요.');
+
+                //아이디와 비밀번호가 모두 비어있지 않을 경우 로그인 시도
+                // if (!idIsEmpty && !passwordIsEmpty){
+                    const id = $('#email').val();
+                    const password = $('#password').val();
+
+                    if (password =='') {
+                        alert('로그인에 ..니다.');
+                        return;
+                    }
+
+                    console.log('id :' , id);
+                    console.log('passwordd :' , password);
+
+                    //서버로 아이디, 비밀번호 전송
+                    $.ajax({
+                        type:'POST',
+                        url: '{% url "account:login" %}' ,
+                        data:{
+                            email:id,
+                            password:password,
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                        },
+                        dataType: 'json' , //문자형식으로 받기
+                        success: function(response) {
+
+                            console.log('passwordd :' , response);
+                            console.log('passwordd :' , response.result);
+                            console.log('passwordd :' , response.result);
+
+                            if (response.result){
+                                alert('로그인에 성공하였습니다.');
+                                '{% url "api:main" %}';
+                            }
+                            else {
+                                alert('아이디 또는 비밀번호가 잘못되었습니다.');
+                            }
+                        },
+                        error: function(error) {
+                            alert('서버 요청 실패: '+error.statusText);
+                        }
+                    });
+                // }
+                // else {
+                //     console.log('wrong id passwd ' );  
+                // }
+            });
+
+
+            </script>
+
+
+
+
+
+    </body>
+</html>

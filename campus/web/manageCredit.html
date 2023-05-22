@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+        <section id="section-block">
+            {% for info in myInfo %}
+            <div id="div-class_box">
+                <p><strong>{{ info.full_name }}</strong> 님의 이수내역</p>
+            </div>
+            {% endfor %}
+            <div id="section-left_credit_until_graduate">
+                <p><b>졸업까지 남은 학점은 ... </b></p>
+                <table id="div-left_credit_until_graduate_table">
+                    <tr>
+                        <td></td>
+                        <th colspan="4"><div>교양</div></th>
+                        <th colspan="8" style="border-left: 1.5px solid #62d3da"><div>전공</div></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="4"></td>
+                        <td colspan="2" style="border-left: 1.5px solid #62d3da"><div>본전공</div></td>
+                        <td colspan="2"><div>복수전공</div></td>
+                        <td colspan="2"><div>부전공</div></td>
+                        <td><div>교직</div></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>핵심(역량)</td>
+                        <td>균형(통합)</td>
+                        <td>기초</td>
+                        <td>일반</td>
+                        <td style="border-left: 1.5px solid #62d3da">필수</td>
+                        <td>선택</td>
+                        <td>필수</td>
+                        <td>선택</td>
+                        <td>필수</td>
+                        <td>선택</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>소요</td>
+                        <td id="core-capacity-need"></td>
+                        <td id="balance-integration-need"></td>
+                        <td id="foundation-need"></td>
+                        <td id="general-need"></td>
+                        <td style="border-left: 1.5px solid #62d3da" id="major-essential-need"></td>
+                        <td id="major-elective-need"></td>
+                        <td id="minor-essential-need"></td>
+                        <td id="minor-elective-need"></td>
+                        <td id="teaching-need"></td>
+                        <td id="remaining1-need"></td>
+                        <td colspan="2" id="remaining2-need"></td>
+                      </tr>
+                    <tr>
+                        <td>취득</td>
+                        <td id="core-capacity-acquire"></td>
+                        <td id="balance-integration-acquire"></td>
+                        <td id="foundation-acquire"></td>
+                        <td id="general-acquire"></td>
+                        <td style="border-left: 1.5px solid #62d3da" id="major-essential-acquire"></td>
+                        <td id="major-elective-acquire"></td>
+                        <td id="minor-essential-acquire"></td>
+                        <td id="minor-elective-acquire"></td>
+                        <td id="teaching-acquire"></td>
+                        <td id="remaining1-acquire"></td>
+                        <td colspan="2" id="remaining2-acquire"></td>                        
+                    </tr>
+                    <tr id="table-left_credit" style="border-top: 1.5px solid #62d3da">
+                        <td>잔여</td>
+                        <td id="core-capacity-remaining"></td>
+                        <td id="balance-integration-remaining"></td>
+                        <td id="foundation-remaining"></td>
+                        <td id="general-remaining"></td>
+                        <td style="border-left: 1.5px solid #62d3da" id="major-essential-remaining"></td>
+                        <td id="major-elective-remaining"></td>
+                        <td id="minor-essential-remaining"></td>
+                        <td id="minor-elective-remaining"></td>
+                        <td id="teaching-remaining"></td>
+                        <td id="remaining1-remaining"></td>
+                        <td colspan="2" id="remaining2-remaining"></td>    
+                    </tr>
+                </table>
+                <div id="div-completed_balance">
+                    <ul id="completed-credits"></ul>
+                    <p id="graduation-requirement"></p>
+                </div>
+            </div>
+            <p><button id="section-origin_table">이수내역확인표 원본 보기</button></p>
+            <hr style="border: 1px solid rgb(229, 229, 229); width: 95%;">
+            <div id="section-opened_major_in_semester">
+                <p>
+                    <div id="p-semester_date"></div>
+                    <button><b>시간표에 추가</b></button>    
+                </p>
+                <div id="section-opened_lecture">
+                    <table id="div-search_major"> <!--axios cdn or patch 링크를 head에 추가-->
+                    </table>
+                </div>
+                <div id="section-time_table">
+                    <table id="div-time_table">
+                        <tr>
+                            <th> </th>
+                            <th>월</th>
+                            <th>화</th>
+                            <th>수</th>
+                            <th>목</th>
+                            <th>금</th>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>11</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>12</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+{% endblock %} 

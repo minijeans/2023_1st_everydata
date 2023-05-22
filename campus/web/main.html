@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <main>
+            <div class="main-container">
+                <div class="main-section">
+                    <div id="main-timetable_top">
+                        <span>학기 시간표</span>  
+                        <button id="main-plus_button" onclick="openSubjectList()">+</button>
+                    </div>
+                    <table id="main-timetable">
+                        <tr>
+                            <th> </th>
+                            <th>월</th>
+                            <th>화</th>
+                            <th>수</th>
+                            <th>목</th>
+                            <th>금</th>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>11</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>12</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+                <div class="main-right">
+                    {% for info in myInfo %}
+                    <div class="main-section">
+                        <div id="main-profile_top">
+                            <div id="profile-img_box">
+                                <img id="profile-img" src="{% static './img/profile-gnu.png' %}">
+                            </div>
+                            <!-- <span id="profile-name">{{ reuqest.session.user }}</span><span>님, 환영합니다!</span> -->
+                            <span id="profile-name">{{ info.full_name }}</span><span>님, 환영합니다!</span>
+                        </div>
+                        <div class="main-profile">
+                            <div>이수학점</div>
+                            <span id="profile-user_credit">76</span><span>/</span><span id="profile-total_credit">130</span>
+                            <a href="{% url 'api:mypage' %}">마이페이지 바로가기</a>
+                        </div>
+                        <table class="main-profile">
+                            <tr>
+                                <th><div>학과</div></th>
+                                <td id="profile-major">{{ info.major }}</td>
+                                <th><div>상태</div></th>
+                                <td id="profile-status">{{ info.academic_status }}</td>
+                            </tr>
+                            <tr>
+                                <th><div>학번</div></th>
+                                <td id="profile-academic_number">{{ info.student_id }}</td>
+                                <th><div>학년</div></th>
+                                <td id="profile-grade">{{ info.grade }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    {% endfor %}
+                    <div class="main-section">
+                        <h2>바로가기</h2>
+                        <div id="main-shortcut">
+                            <div>
+                                <a href="https://www.gnu.ac.kr/main/main.do" target="_blank">
+                                    <div class="shortcut-circle"> 
+                                        <i class="fa-solid fa-school fa-2x"></i>
+                                    </div>
+                                    <div class="shortcut-name">학교 홈페이지</div>
+                                </a>
+                                <a href="https://portal.gnu.ac.kr/portal/default/stuMain" target="_blank">
+                                    <div class="shortcut-circle">
+                                        <i class="fa-solid fa-laptop fa-2x"></i>
+                                    </div>
+                                    <div class="shortcut-name">통합서비스</div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://sugang.gnu.ac.kr/login" target="_blank">
+                                    <div class="shortcut-circle">
+                                        <i class="fa-solid fa-calendar-days fa-2x"></i>
+                                    </div>
+                                    <div class="shortcut-name">수강신청</div>
+                                </a>
+                                <a href="https://nerum.gnu.ac.kr/index.do" target="_blank">
+                                    <div class="shortcut-circle">
+                                        <i class="fa-solid fa-graduation-cap fa-2x"></i>
+                                    </div>
+                                    <div class="shortcut-name">학생역량시스템</div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://www.rec.ac.kr/gnu" target="_blank">
+                                    <div class="shortcut-circle">
+                                        <i class="fa-solid fa-book fa-2x"></i>
+                                    </div>
+                                    <div class="shortcut-name">LMS</div>
+                                </a>
+                                <a href="https://gelc.or.kr/main/MainView.dunet#main" target="_blank">
+                                    <div class="shortcut-circle">
+                                        <i class="fa-solid fa-chalkboard-user fa-2x"></i>
+                                    </div>
+                                    <div class="shortcut-name">교류용이러닝</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="subject-list-popup" style="display: none;">
+                <div id="subject-list"></div>
+            </div>
+        </main>
+        
+
+{% endblock %} 

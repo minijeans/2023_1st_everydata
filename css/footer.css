@@ -9,6 +9,8 @@ footer {
     align-items: center;
     margin-top: 40px;
     padding: 20px 30px;
+    width: 100vw;
+    box-sizing: border-box;
 }
 #footer-left div{
     padding: 2px;

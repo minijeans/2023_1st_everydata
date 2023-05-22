@@ -17,7 +17,7 @@ li{
 }
 
 
-
+/* 메인 컨테이너 */
 main{
     margin-top: 30px;
     min-height: 830px;
@@ -76,6 +76,7 @@ main{
 }
 
 
+/* 시간표 */
 #main-timetable, th, td{
     border: 1px solid #D9D9D9;
     border-collapse: collapse;
@@ -87,12 +88,35 @@ main{
     vertical-align: top;
 }
 #main-timetable td{
+    position: relative;
+    padding: 10px;
     padding: 0 2px;
     width: 101px;
     height: 70px;
     font-size: 12.5px;
-    overflow: hidden;
+    /* text-overflow: ellipsis !important; */
 }
+.delete-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+
+    border-radius: 10px;
+    width: 50px;
+    height: 25px;
+    background-color: #FFFFFF;
+    border-color: #94D4D8;
+    color:#40BBCA;
+}
+td:hover .subject_info {
+    visibility: hidden;
+}
+td:hover .delete-button {
+    display: block;
+}
+
 #main-timetable{
     margin: auto;
     margin-top: 20px;
@@ -103,6 +127,9 @@ main{
     width: 83.5px !important;
 }
 
+
+
+/* 사용자 프로필 */
 #main-profile_top {
     margin: 8px;
     display: flex;
@@ -165,6 +192,7 @@ main{
 }
 
 
+/* 바로가기 */
 .main-section > h2 {
     color: #40BBCA;
     margin-left: 15px;
