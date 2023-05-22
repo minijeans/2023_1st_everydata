@@ -90,12 +90,12 @@ main{
 #main-timetable td{
     position: relative;
     padding: 10px;
-    padding: 0 2px;
+    padding: 2px;
     width: 101px;
     height: 70px;
     font-size: 12.5px;
-    /* text-overflow: ellipsis !important; */
 }
+
 .delete-button {
     position: absolute;
     top: 50%;

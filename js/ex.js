@@ -320,6 +320,12 @@ const isLastSubject = i === dayTimePairs.length - 1; //마지막 교시인지 �
     mergedRowStart = cell;
 
 
+    const isLastSubject = i === dayTimePairs.length - 1; //마지막 교시인지 확인
+    if (!isLastSubject) {
+      continue;
+    }
+    const startCellIndex = mergedRowStart.cellIndex;
+
   <!-- <tr>
                             <th> </th>
                             <th>월</th>

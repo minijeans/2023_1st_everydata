@@ -99,22 +99,22 @@ const name_inputcheck = () => {
 };
   
 //학번 유효성 검사
-const academic_number_inputcheck = () => {
+const student_id_inputcheck = () => {
     //숫자로 된 문자열
-    const academic_numberReg = /^[0-9]+$/;
-    const academic_number = document.getElementById("academic_number").value;
+    const student_idReg = /^[0-9]+$/;
+    const student_id = document.getElementById("student_id").value;
     
-    if (academic_numberReg.test(academic_number)) {
+    if (student_idReg.test(student_id)) {
         //유효한 학번 형식
-        showMessage('academic_number', '', false);
+        showMessage('student_id', '', false);
         return true;
-    } else if (academic_number === "") {
+    } else if (student_id === "") {
         //비어있을 경우
-        showMessage('academic_number', '학번을 입력해주세요.', true);
+        showMessage('student_id', '학번을 입력해주세요.', true);
         return false;
     } else {
         //유효하지 않은 학번 형식
-        showMessage('academic_number', '숫자로 입력해주세요.', true);
+        showMessage('student_id', '숫자로 입력해주세요.', true);
         return false;
     }
 };
@@ -187,7 +187,7 @@ const validateForm = () => {
         //이름 유효성 검사 실패
         return false;
     }
-    if (!academic_number_inputcheck()){
+    if (!student_id_inputcheck()){
         //학번 유효성 검사 실패
         return false;
     }

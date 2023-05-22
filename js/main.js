@@ -9,11 +9,11 @@ document.getElementById('p-semester_date').innerHTML = message;
 
 //임의 DB
 const tempSubjects = [
-  { id: 1, name: '프로그래밍언어론', professor: '홍길동', category: '전공필수', time: '토4, 토5', room: '030-0304' },
+  { id: 1, name: '프로그래밍언어론', professor: '홍길동', category: '전공필수', time: '금4, 금5', room: '030-0304' },
   { id: 2, name: '소프트웨어설계PBL', professor: '홍길동', category: '전공필수', time: '목1, 목2', room: '030-0304' },
-  { id: 3, name: '데이터베이스', professor: '홍길동', category: '전공필수', time: '월3, 월4', room: '030-0304' },
+  { id: 3, name: '데이터베이스', professor: '홍길동', category: '전공필수', time: '금3, 월1, 월2', room: '030-0304' },
   { id: 4, name: '데이터과학', professor: '홍길동', category: '전공필수', time: '금1, 금2', room: '030-0304' },
-  { id: 5, name: '컴퓨터네트워크컴퓨터네트워크', professor: '홍길동', category: '전공필수', time: '화6, 화7, 수3', room: '030-0304' }
+  { id: 5, name: '컴퓨터네트워크컴퓨터네트워크', professor: '홍길동', category: '전공필수', time: '화1, 화2, 수3', room: '030-0304' }
 ];
 
 //사용자 프로필--------------------------------------------------------------
@@ -35,7 +35,7 @@ $.ajax({
     document.getElementById("profile-total_credit").innerHTML = total_credit;
     document.getElementById("profile-major").innerHTML = major;
     document.getElementById("profile-status").innerHTML = status;
-    document.getElementById("profile-academic_number").innerHTML = academic_number;
+    document.getElementById("profile-student_id").innerHTML = academic_number;
     document.getElementById("profile-grade").innerHTML = grade;
   },
   error: function(xhr, status, error){
@@ -175,8 +175,6 @@ const addSubjectToTimetable = (subject) => {
       return;
     }
 
-    const isLastSubject = i === dayTimePairs.length - 1; //마지막 교시인지 확인
-
     //연속된 강의면 mergedRows++
     if (i > 0) {
       const prevSubject = dayTimePairs[i - 1];
@@ -185,9 +183,6 @@ const addSubjectToTimetable = (subject) => {
       const prevTimeEnd = Number(prevTime) + 1;
       if (day === prevDay && currentTime === prevTimeEnd) {
         mergedRows++;
-        if (!isLastSubject) {
-          continue;
-        }
       }
     }
 
@@ -202,7 +197,6 @@ const addSubjectToTimetable = (subject) => {
   
     //연속된 강의면 rowspan 속성 설정 및 셀 삭제
     if (mergedRows > 1) {
-      const startCellIndex = mergedRowStart.cellIndex;
       const rowspan = mergedRows;
       const prevRow = mergedRowStart.parentNode;
 
