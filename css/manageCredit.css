@@ -193,39 +193,68 @@ strong{
 /* 개설 전공 테이블 */
 #div-search_major{
     text-align: center;
-    border: 1px solid #40BBCA;
+    border: 1px solid #f5f5f5;
     border-collapse: collapse;
     width: 100%;
 
 } 
 #div-search_major td{
     font-size: 20px;
-    border: 2px solid #40BBCA;
-    font-size: 20px;
+    border: 1px solid #a2a2a2;
+    font-size: 18px;
 }
 
 /* 시간표 들어있는 div */
 #section-time_table{
     float: right;
     width: 45%;
-    margin: 2.5%;
-    background-color: #f5f5f5;
+    margin-right: 2.5%;
 }
-/* 강의추천결과 시간표 */
-#div-time_table, #div-time_table th, #div-time_table td{
+/* 시간표 */
+#main-timetable, #main-timetable th, #main-timetable td{
     border: 1px solid #D9D9D9;
     border-collapse: collapse;
+    /* table-layout: fixed; */
 }
-#div-time_table th{
-    font-family: Montserrat;
+#main-timetable th{
+    color: #A5A5A5;
     font-weight: lighter;
     font-size: 14px;
     vertical-align: top;
 }
-#div-time_table td{
-    width: 100px;
+#main-timetable td{
+    position: relative;
+    padding: 10px;
+    padding: 2px;
+    width: 101px;
     height: 50px;
+    font-size: 12.5px;
+
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
 }
-#div-time_table{
+#main-timetable{
     margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.delete-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+
+    border-radius: 10px;
+    width: 50px;
+    height: 25px;
+    background-color: #FFFFFF;
+    border-color: #94D4D8;
+    color:#40BBCA;
+}
+td:hover .delete-button {
+    display: block;
+}
+td:hover .subject_info {
+    visibility: hidden;
 }
