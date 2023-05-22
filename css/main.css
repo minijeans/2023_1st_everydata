@@ -80,6 +80,7 @@ main{
 #main-timetable, th, td{
     border: 1px solid #D9D9D9;
     border-collapse: collapse;
+    /* table-layout: fixed; */
 }
 #main-timetable th{
     color: #A5A5A5;
@@ -94,6 +95,9 @@ main{
     width: 101px;
     height: 70px;
     font-size: 12.5px;
+
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
 }
 
 .delete-button {

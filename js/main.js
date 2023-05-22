@@ -9,11 +9,11 @@ document.getElementById('p-semester_date').innerHTML = message;
 
 //임의 DB
 const tempSubjects = [
-  { id: 1, name: '프로그래밍언어론', professor: '홍길동', category: '전공필수', time: '금4, 금5', room: '030-0304' },
-  { id: 2, name: '소프트웨어설계PBL', professor: '홍길동', category: '전공필수', time: '목1, 목2', room: '030-0304' },
+  { id: 1, name: '프로그래밍언어론', professor: '홍길동', category: '전공필수', time: '금4, 금5, 목6', room: '030-0304' },
+  { id: 2, name: '소프트웨어설계PBL', professor: '홍길동', category: '전공필수', time: '목1, 목2, 목3', room: '030-0304' },
   { id: 3, name: '데이터베이스', professor: '홍길동', category: '전공필수', time: '금3, 월1, 월2', room: '030-0304' },
-  { id: 4, name: '데이터과학', professor: '홍길동', category: '전공필수', time: '금1, 금2', room: '030-0304' },
-  { id: 5, name: '컴퓨터네트워크컴퓨터네트워크', professor: '홍길동', category: '전공필수', time: '화1, 화2, 수3', room: '030-0304' }
+  { id: 4, name: '데이터과학', professor: '홍길동', category: '전공필수', time: '토1, 토2', room: '030-0304' },
+  { id: 5, name: '컴퓨터네트워크', professor: '홍길동', category: '전공필수', time: '수3, 수4, 수5, 수6', room: '030-0304' }
 ];
 
 //사용자 프로필--------------------------------------------------------------
@@ -153,16 +153,20 @@ const findMaxSubjectHour = (subjects) => {
 
 // 시간표에 강의를 추가---------------------------------------------------------
 const addSubjectToTimetable = (subject) => {
+
   const timetable = document.getElementById("main-timetable");
   const dayTimePairs = subject.time.split(", ");
   let mergedRows = 1; // 통합된 행 수
   let mergedRowStart = null; // 통합된 행 시작 인덱스
+  const days = ["월", "화", "수", "목", "금", "토"];
 
   const colorArray = ["#FFEDEC", "#E7F5F4", "#FFF9D2", "#F2ECF7", "#FFEFDD", "#E0F3EB", "#F2FAD2", "#F4EBEA"]; // 배경색 배열
 
   for (let i = 0; i < dayTimePairs.length; i++) {
     const [day, time] = dayTimePairs[i].split(/([^\uAC00-\uD7A3]+)/);
     const cell = document.querySelector(`#main-timetable td[data-day="${day}"][data-time="${time}"]`);
+
+    
 
     //시간표 셀 확인
     if (!cell) {
@@ -175,6 +179,7 @@ const addSubjectToTimetable = (subject) => {
       return;
     }
 
+    const isLastSubject = i === dayTimePairs.length - 1; //마지막 교시인지 확인
     //연속된 강의면 mergedRows++
     if (i > 0) {
       const prevSubject = dayTimePairs[i - 1];
@@ -183,6 +188,10 @@ const addSubjectToTimetable = (subject) => {
       const prevTimeEnd = Number(prevTime) + 1;
       if (day === prevDay && currentTime === prevTimeEnd) {
         mergedRows++;
+        // continue;
+        if (!isLastSubject) {
+          continue;
+        }
       }
     }
 
@@ -197,13 +206,15 @@ const addSubjectToTimetable = (subject) => {
   
     //연속된 강의면 rowspan 속성 설정 및 셀 삭제
     if (mergedRows > 1) {
+      const startCellIndex = mergedRowStart.cellIndex;
       const rowspan = mergedRows;
       const prevRow = mergedRowStart.parentNode;
 
       for (let j = 1; j < mergedRows; j++) {
         const currentRowIndex = prevRow.rowIndex + j;
         const currentRow = timetable.rows[currentRowIndex];
-        const cellToRemove = currentRow.querySelector(`#main-timetable td[data-day="${day}"][data-time="${time}"]`);
+        const currentDay = days[startCellIndex-1];
+        const cellToRemove = currentRow.querySelector(`#main-timetable td[data-day="${currentDay}"][data-time="${currentRowIndex}"]`);
         if (cellToRemove) {
           cellToRemove.remove();
         }
