@@ -39,7 +39,7 @@ function press(f){
       formname.submit(); //formname에 사용자가 지정한 form의 name입력
   }
 }
-//검색창 돋보기 눌러도 제출
+//검색창 돋보기 눌러도 제출-------------------------
 // 검색 버튼 요소를 가져오기
 const searchButton = document.querySelector('#form-search_button');
 
@@ -92,7 +92,7 @@ function sendDataToPython() {
     hours: selectedHours
   };
   
-  // data 객체를 Python 파일로 전달하는 함수 호출. data 안에는 선택한 요일과 선택한 시간이 들어있습니다
+  // data 객체를 Python 파일로 전달하는 함수 호출. data 안에는 선택한 요일과 선택한 시간이 들어있음
   callPythonFunction(data);
 }
 

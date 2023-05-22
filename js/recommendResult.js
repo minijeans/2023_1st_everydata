@@ -36,6 +36,31 @@ const results = [
   }
 ];
 
+// //파이썬에서 강의추천 돌린거 가져오기-------------
+// $.ajax({
+//   url: '/api/recommend-courses',
+//   method: 'GET',
+//   success: function(response) {
+//       // 서버에서 받은 추천된 강의 목록 처리
+//       response.forEach(function(course) {
+//           console.log('강의 제목:', course.title);
+//           console.log('강사:', course.professor);
+//           console.log('카테고리:', course.category);
+//           console.log('시간:', course.time);
+//           console.log('강의실:', course.classroom);
+//           // 여기에서 필요한 처리를 수행
+//       });
+
+//       // 강의 추천 결과를 화면에 표시
+//       displayResults(response);
+//   },
+//   error: function(xhr, status, error) {
+//       // 서버 요청이 실패한 경우 에러 처리
+//       console.error('강의 추천 요청 실패.', error);
+//   }
+// });
+
+
 // 강의 추천 결과를 화면에 표시하는 함수
 function displayResults(results) {
   const resultContainer = document.getElementById("section-recommend_list");
@@ -84,6 +109,8 @@ function displayResults(results) {
 }
 
 displayResults(results);
+
+
 
 
 

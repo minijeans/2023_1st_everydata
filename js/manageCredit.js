@@ -168,9 +168,55 @@ if (remaining2Acquire>=remaining2Need){
   remaining2Remaining=remaining2Need-remaining2Acquire;
 }
 
+// // 서버 이수내역확인표 정보 요청------------------
 
+// $.ajax({
+//   url: '/api/subjects-completed-pdf',  // 데이터를 받아올 API 엔드포인트의 URL을 설정.
+//   method: 'GET',  // GET 메서드를 사용하여 데이터를 요청.
+//   success: function(response) {
+//     // 서버 응답 처리
+//     document.getElementById("core-capacity-need").innerHTML = response.coreCapacityNeed;
+//     document.getElementById("balance-integration-need").innerHTML = response.balanceIntegrationNeed;
+//     document.getElementById("foundation-need").innerHTML = response.foundationNeed;
+//     document.getElementById("general-need").innerHTML = response.generalNeed;
+//     document.getElementById("major-essential-need").innerHTML = response.majorEssentialNeed;
+//     document.getElementById("major-elective-need").innerHTML = response.majorElectiveNeed;
+//     document.getElementById("minor-essential-need").innerHTML = response.minorEssentialNeed;
+//     document.getElementById("minor-elective-need").innerHTML = response.minorElectiveNeed;
+//     document.getElementById("teaching-need").innerHTML = response.teachingNeed;
+//     document.getElementById("remaining1-need").innerHTML = response.remaining1Need;
+//     document.getElementById("remaining2-need").innerHTML = response.remaining2Need;
 
-// 각 td 엘리먼트에 값 넣기
+//     document.getElementById("core-capacity-acquire").innerHTML = response.coreCapacityAcquire;
+//     document.getElementById("balance-integration-acquire").innerHTML = response.balanceIntegrationAcquire;
+//     document.getElementById("foundation-acquire").innerHTML = response.foundationAcquire;
+//     document.getElementById("general-acquire").innerHTML = response.generalAcquire;
+//     document.getElementById("major-essential-acquire").innerHTML = response.majorEssentialAcquire;
+//     document.getElementById("major-elective-acquire").innerHTML = response.majorElectiveAcquire;
+//     document.getElementById("minor-essential-acquire").innerHTML = response.minorEssentialAcquire;
+//     document.getElementById("minor-elective-acquire").innerHTML = response.minorElectiveAcquire;
+//     document.getElementById("teaching-acquire").innerHTML = response.teachingAcquire;
+//     document.getElementById("remaining1-acquire").innerHTML = response.remaining1Acquire;
+//     document.getElementById("remaining2-acquire").innerHTML = response.remaining2Acquire;
+
+//     document.getElementById("core-capacity-remaining").innerHTML = response.coreCapacityRemaining;
+//     document.getElementById("balance-integration-remaining").innerHTML = response.balanceIntegrationRemaining;
+//     document.getElementById("foundation-remaining").innerHTML = response.foundationRemaining;
+//     document.getElementById("general-remaining").innerHTML = response.generalRemaining;
+//     document.getElementById("major-essential-remaining").innerHTML = response.majorEssentialRemaining;
+//     document.getElementById("major-elective-remaining").innerHTML = response.majorElectiveRemaining;
+//     document.getElementById("minor-essential-remaining").innerHTML = response.minorEssentialRemaining;
+//     document.getElementById("minor-elective-remaining").innerHTML = response.minorElectiveRemaining;
+//     document.getElementById("teaching-remaining").innerHTML = response.teachingRemaining;
+//     document.getElementById("remaining1-remaining").innerHTML = response.remaining1Remaining;
+//   },
+//   error: function(xhr, status, error) {
+//     // 서버 요청이 실패한 경우 에러 처리
+//     console.error('데이터 요청 실패함.', error);
+//   }
+// });
+
+// 각 td 엘리먼트에 값 넣기----------------------
 document.getElementById("core-capacity-need").innerHTML = coreCapacityNeed;
 document.getElementById("balance-integration-need").innerHTML = balanceIntegrationNeed;
 document.getElementById("foundation-need").innerHTML = foundationNeed;
@@ -208,7 +254,7 @@ document.getElementById("remaining1-remaining").innerHTML = remaining1Remaining;
 
 
 
-// 현재 날짜 기반으로 년도와 학기 출력
+// 현재 날짜 기반으로 년도와 학기 출력-------------------------
 var today = new Date();
 var year = today.getFullYear();
 var semester = today.getMonth() < 6 ? 1 : 2;
@@ -261,29 +307,25 @@ for (let i = 0; i < major_data.length; i++) {
   }
 }
 
-
-
-//이수내역확인표 불러오기---------------------------------
-
-const button = document.getElementById("section-origin_table");
-button.addEventListener("click", function() {
-  // 이수내역확인표 원본 보기 버튼 클릭 시 동작하는 이벤트 핸들러
-
-  // 서버에 PDF 파일 요청을 보내는 부분
-  fetch("/get_pdf_url") // 서버의 엔드포인트 URL에 맞게 수정해야 합니다.
-    .then(response => response.text())
-    .then(pdfUrl => {
-      // 서버로부터 받은 PDF 파일의 URL을 변수 pdfUrl에 저장합니다.
-
-      // 새 창에서 PDF 파일 열기
-      window.open(pdfUrl, "_blank");
-      // window.open() 함수를 사용하여 새 창을 열고, pdfUrl을 URL로 지정하여 PDF 파일을 엽니다.
-      // "_blank"는 새 창에서 열기 위한 타겟 속성입니다.
-    })
-    .catch(error => {
-      // 요청이 실패한 경우, 콘솔에 에러 메시지를 출력합니다.
-      console.log("Error:", error);
-    });
+document.getElementById("section-origin_table").addEventListener("click", function() {
+  // AJAX 요청을 통해 이수내역확인표를 받아오는 코드
+  $.ajax({
+    url: '/api/subjects-completed-pdf',
+    method: 'GET',
+    success: function(response) {
+      // 새 창을 열어 이수내역확인표를 표시
+      var newWindow = window.open();
+      newWindow.document.write(response);
+    },
+    error: function(xhr, status, error) {
+      // 서버 요청이 실패한 경우 에러 처리
+      console.error('이수내역확인표 요청 실패.', error);
+    }
+  });
 });
+
+
+
+
 
 
