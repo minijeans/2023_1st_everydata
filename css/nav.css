@@ -1,7 +1,9 @@
 /* 이지민 작성 */
+/* 네비바 css/ */
 
 nav{
     display: flex;
+    width: 100vw;
     justify-content: space-between;
     position: relative;
     z-index: 3;
@@ -11,6 +13,7 @@ nav{
     box-shadow: 0px 5px 6px rgba(0,0,0,0.1);
     white-space : nowrap;
     min-width:max-content;
+    box-sizing: border-box;
 }
 #nav-menu{
     display: flex;
@@ -49,13 +52,17 @@ nav{
     background: #d3f0f0;
 }
 #nav-logo{
+    display: flex;
     padding-left: 0;
     font-family: 'Bebas Neue', cursive;
     font-size: 40px;
     align-items: center;
+    position: absolute;
     left: 50%;
-    padding-left: 100px;
-    padding-right: 300px;
+    transform: translateX(-50%);
+    /* left: 50%; */
+    /* padding-left: 100px;
+    padding-right: 350px; */
 }
 .nav-logo_data{
     color: #94D4D8;
@@ -72,3 +79,16 @@ nav{
     font-size: 14px;
     color: #40BBCA;
 }
+
+@media screen and (max-width: 950px) {
+    #nav-logo {
+      position: relative;
+      left: auto;
+      transform: none;
+      /* text-align: center; */
+    }
+  
+    #nav-logo_img {
+      margin-right: 0;
+    }
+  }

@@ -15,6 +15,8 @@ body{
     background-attachment: fixed;
 }
 
+
+/* 로그인 윗 부분 */
 .login-top{
     position: relative;
     z-index: 3;
@@ -37,6 +39,8 @@ body{
     background-color: transparent;
 }
 
+
+/* 로그인 박스 */
 .login-wrapper{
     position: relative;
     z-index: 2;
@@ -56,6 +60,9 @@ body{
     background-color: #ffffff;
     margin-bottom: 15px;
 }
+
+
+/* 로그인 폼 */
 #login-form{
     background-color: #ffffff;
 }
@@ -88,10 +95,12 @@ body{
     color: #A5A5A5;
 }
 
+/* 아이디 저장 */
 #save-id {
     accent-color: #62D3DA;
 }
 
+/* 로그인 */
 #login-form input[type="checkbox"] + label{
     cursor: pointer;
     padding-left: 26px;
@@ -101,6 +110,7 @@ body{
 }
 
 
+/* 이동 */
 #login-signup_pwsearch {
     background-color: #ffffff;
     display: flex;

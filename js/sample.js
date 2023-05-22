@@ -38,6 +38,8 @@ const addSubjectToServer = (subject) => {
     data: JSON.stringify(subject),
     success: function (response) {
       console.log('강의 추가 요청이 성공적으로 전송되었습니다.');
+
+      localStorage.setItem('subjectAdded', 'true');
     },
     error: function (xhr, status, error) {
       console.error('강의 추가 요청이 실패하였습니다.');
