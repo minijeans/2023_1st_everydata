@@ -27,13 +27,13 @@ document.getElementById('find-form_submit').onclick = function(event) {
 
 //     const idIsEmpty = checkField('id', '아이디를 입력해주세요.');
 //     const nameIsEmpty = checkField('name', '이름을 입력해주세요.');
-//     const academic_numberIsEmpty = checkField('academic_number', '학번을 입력해주세요.');
+//     const student_idIsEmpty = checkField('student_id', '학번을 입력해주세요.');
 
 //     //아이디, 이름, 학번이 모두 비어있지 않을 경우 비밀번호 찾기 시도
-//     if (!idIsEmpty && !nameIsEmpty && !academic_numberIsEmpty){
+//     if (!idIsEmpty && !nameIsEmpty && !student_idIsEmpty){
 //         const id = $('#id').val();
 //         const name = $('#name').val();
-//         const academic_number = $('#academic_number').val();
+//         const student_id = $('#student_id').val();
 
 //         //서버로 아이디, 이름, 학번 전송
 //         $.ajax({
@@ -42,7 +42,7 @@ document.getElementById('find-form_submit').onclick = function(event) {
 //             data:{
 //                 id:id,
 //                 name:name,
-//                 academic_number:academic_number
+//                 student_id:student_id
 //             },
 //             success: function(response) {
 //                 if (response.success){
