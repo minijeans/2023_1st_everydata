@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'campus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'everydata_db',
-        'USER': 'everyuser',
-        'PASSWORD' : 'ryu0905*',
+        'NAME': 'everydata',
+        'USER': 'root',
+        'PASSWORD' : '0000',
         'HOST' : 'localhost',
-        'PORT' : '3306'
+        'PORT' : '3307'
     }
 }
 
