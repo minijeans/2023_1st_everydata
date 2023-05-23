@@ -32,9 +32,8 @@
                     </li>
                 </ul>
                 <div id="nav-logo">
-                    <img id="nav-logo_img" src="../img/logo-green.png" alt="메인로고" height="30">
                     <a href="main.html">
-                        <span>EVERY</span><span class="nav-logo_data">DATA</span>
+                        <img id="nav-logo_img" src="../img/logo-text-green.png" alt="메인로고" height="30">
                     </a>
                 </div>
                 <button id="nav-logout_button" type="button" onclick="">로그아웃</button>
@@ -57,12 +56,12 @@
                         <td colspan="9">
                             <div id="p-semester_date"></div> 
                         </td>
-                        <th>구분</th>
+                        <!--<th>구분</th>-->
                         <td>
-                            <select id="table-ge_category">
+                            <!--<select id="table-ge_category">
                                 <optgroup label="교양">
                                     <option value="교양">교양</option>
-                                    <option value="통합교양"><b>*--통합교양--*</b></option>
+                                    <option value="균형교양"><b>*--통합교양--*</b></option>
                                     <option value="문학과문화">1영역(문학과 문화)</option>
                                     <option value="역사와철학">2영역(역사와 철학)</option>
                                     <option value="인간과사회">3영역(인간과 사회)</option>
@@ -86,31 +85,32 @@
                                     <option value="전공필수">전공필수</option>
                                     <option value="교직">교직</option>
                                 </optgroup>
-                            </select>
+                            </select>-->
                         </td>
                     </tr>
                     <tr>
                         <!-- 요일은 하나만! -->
                         <th>요일</th>
-                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="mon" onclick="NoMultiChk(this)">월</label></td>
-                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="tue" onclick="NoMultiChk(this)">화</label></td>
-                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="wed" onclick="NoMultiChk(this)">수</label></td>
-                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="thr" onclick="NoMultiChk(this)">목</label></td>
-                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="fri" onclick="NoMultiChk(this)">금</label></td>
-                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="sat" onclick="NoMultiChk(this)">토</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="월" onclick="filterSubjectList('월')">월</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="화" onclick="filterSubjectList('화')">화</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="수" onclick="filterSubjectList('수')">수</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="목" onclick="filterSubjectList('목')">목</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="금" onclick="filterSubjectList('금')">금</label></td>
+                        <td><label><input type="checkbox" class="table-select_day" name="table-select_day" value="토" onclick="filterSubjectList('토')">토</label></td>
                       </tr>
                       <tr>
                         <th>교시</th>
-                        <td><label><input type="checkbox" class="table-select_hour" value="1">1</label></td>
-                        <td><label><input type="checkbox" class="table-select_hour" value="2">2</label></td>
-                        <td><label><input type="checkbox" class="table-select_hour" value="3">3</label></td>
-                        <td><label><input type="checkbox" class="table-select_hour" value="4">4</label></td>
-                        <td><label><input type="checkbox" class="table-select_hour" value="5">5</label></td>
-                        <td><label><input type="checkbox" class="table-select_hour" value="6">6</label></td>
-                        <td><label><input type="checkbox" class="table-select_hour" value="7">7</label></td>
-                        <td><label><input type="checkbox" class="table-select_hour" value="8">8</label></td>
-                        <td><label><input type="checkbox" class="table-select_hour" value="9">9</label></td>
-                      </tr>
+                        <td><label><input type="checkbox" class="table-select_hour" name="table-select_time" value="1" onclick="filterSubjectList(1)">1</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" name="table-select_time" value="2" onclick="filterSubjectList(2)">2</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" name="table-select_time" value="3" onclick="filterSubjectList(3)">3</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" name="table-select_time" value="4" onclick="filterSubjectList(4)">4</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" name="table-select_time" value="5" onclick="filterSubjectList(5)">5</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" name="table-select_time" value="6" onclick="filterSubjectList(6)">6</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" name="table-select_time" value="7" onclick="filterSubjectList(7)">7</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" name="table-select_time" value="8" onclick="filterSubjectList(8)">8</label></td>
+                        <td><label><input type="checkbox" class="table-select_hour" name="table-select_time" value="9" onclick="filterSubjectList(9)">9</label></td>
+                      </tr>                     
+                      
                 </table>
             </div>
             <div id="section-class_list">

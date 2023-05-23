@@ -5,11 +5,19 @@ const tempSubjects = [
   {id: 3, name: "데이터베이스", professor:"홍길동", category: "전공필수", subject_code: "3", time:"금1, 금2", room: "030-0304"},
   {id: 4, name: "데이터과학", professor:"홍길동", category: "전공필수", subject_code: "4", time:"월11, 월12", room: "030-0304"},
   {id: 5, name: "컴퓨터네트워크", professor:"홍길동", category: "전공필수", subject_code: "5", time:"화6, 화7, 수3", room: "030-0304"},
-  {id: 6, name: "환경과오염", professor: "김둘선", category: "균형교양(통합교양) 5영역(과학과 기술)", subject_code: "6", time: "월 4, 5", room: "024-0135"}
+  {id: 6, name: "환경과오염", professor: "김둘선", category: "균형교양(통합교양) 5영역(과학과 기술)", subject_code: "6", time: "월4, 토5", room: "024-0135"}
 ];
+// 현재 날짜 기반으로 년도와 학기 출력 : 남서린 작성
+let today = new Date();
+let year = today.getFullYear();
+let semester = today.getMonth() < 6 ? 1 : 2;
+let message = year + '년 ' + semester + '학기';
+document.getElementById('p-semester_date').innerHTML = message;
 
 const table = document.getElementById("div-class_list_table");
 const categorySelect = document.getElementById("table-ge_category");
+
+
 
 // 강의 목록을 표시하는 함수
 function displaySubjectList(subjects) {
@@ -46,19 +54,42 @@ function displaySubjectList(subjects) {
   });
 }
 
-// 카테고리 선택 이벤트 처리
-categorySelect.addEventListener("change", function() {
-  const selectedCategory = categorySelect.value;
-
-  if (selectedCategory === "전체") {
-    // 전체 강의 목록 표시
-    displaySubjectList(tempSubjects);
-  } else {
-    // 선택한 카테고리에 해당하는 강의 목록 필터링하여 표시
-    const filteredSubjects = tempSubjects.filter(subject => subject.category === selectedCategory);
-    displaySubjectList(filteredSubjects);
-  }
-});
-
 // 초기 페이지 로드 시 전체 강의 목록 표시
 displaySubjectList(tempSubjects);
+
+
+// 요일과 교시에 따라 필터링된 강의 목록을 표시하는 함수
+function filterSubjectList() {
+  // 선택된 요일과 교시를 가져옴
+  const selectedDays = Array.from(document.querySelectorAll('.table-select_day:checked')).map(day => day.value);
+  const selectedHours = Array.from(document.querySelectorAll('.table-select_hour:checked')).map(hour => hour.value);
+
+  // 필터링된 강의 목록을 담을 배열
+  let filteredSubjects = [];
+
+  // 선택된 요일과 교시가 없는 경우, 전체 강의 목록을 표시
+  if (selectedDays.length === 0 && selectedHours.length === 0) {
+    filteredSubjects = tempSubjects;
+  } else {
+    // 강의 목록을 순회하면서 필터링
+    tempSubjects.forEach(subject => {
+      // 강의 시간 정보를 가져옴
+      const subjectTimes = subject.time.split(', ');
+
+      // 선택된 요일과 교시를 합쳐서 '월3'과 같은 형식의 문자열을 만듦
+      const selectedTime = selectedDays.map(day => selectedHours.map(hour => day + hour)).flat();
+
+      // 선택된 시간과 강의의 시간을 비교하여 필터링
+      const hasMatchingTime = selectedTime.some(time => subjectTimes.includes(time));
+
+      if (hasMatchingTime) {
+        filteredSubjects.push(subject);
+      }
+    });
+  }
+
+  // 필터링된 강의 목록 표시
+  displaySubjectList(filteredSubjects);
+}
+
+
