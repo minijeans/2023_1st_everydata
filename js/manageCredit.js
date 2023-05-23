@@ -274,12 +274,10 @@ const header1 = headerRow.insertCell(0);
 const header2 = headerRow.insertCell(1);
 const header3 = headerRow.insertCell(2);
 const header4 = headerRow.insertCell(3);
-const header5 = headerRow.insertCell(4);
 header1.innerHTML = '학년';
 header2.innerHTML = '이수구분';
 header3.innerHTML = '학점';
 header4.innerHTML = '교과목명';
-header5.innerHTML = 'V';
 
 // 데이터 추가
 for (let i = 0; i < major_data.length; i++) {
@@ -295,15 +293,10 @@ for (let i = 0; i < major_data.length; i++) {
     const cell2 = row.insertCell(1);
     const cell3 = row.insertCell(2);
     const cell4 = row.insertCell(3);
-    const cell5 = row.insertCell(4);
     cell1.textContent = grade;
     cell2.textContent = category;
     cell3.textContent = credit;
     cell4.textContent = subject_name;
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.value = subject_name;
-    cell5.appendChild(checkbox);
   }
 }
 
