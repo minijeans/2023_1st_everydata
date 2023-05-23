@@ -47,10 +47,11 @@ tempCompleted.forEach(subject => {
   const select = tr.querySelector(".score-select");
   select.addEventListener("change", function() {
     const selectedScore = this.value; // 선택된 성적 값 가져오기
-    // 수정된 성적을 서버로 보내는 로직 추가
+    // 수정된 성적을 서버로 보내는 로직 추가?
     const subjectId = subject.id; // 해당 과목의 고유 식별자 (임의 DB에서는 id로 가정)
-
     sendScoreUpdateToServer(subjectId, selectedScore);
+    //백에서 temp 불러오는 함수 호출 추가
+    updateChart();
   });
 
   completed_table.appendChild(tr);
@@ -125,9 +126,25 @@ let labels = [];
 let totals = [];
 let majors = [];
 for (let smst of tempScore){
+  labels.push(smst.semester);
+  totals.push(smst.total_score);
+  majors.push(smst.major_score);
+}
+
+const updateChart = () => {
+  let labels = [];
+  let totals = [];
+  let majors = [];
+  for (let smst of tempScore){
     labels.push(smst.semester);
     totals.push(smst.total_score);
     majors.push(smst.major_score);
+  }
+  myChart.data.labels = labels;
+  myChart.data.datasets[0].data = totals;
+  myChart.data.datasets[1].data = majors;
+  
+  myChart.update();
 }
 
 const ctx = document.getElementById("myChart").getContext('2d');

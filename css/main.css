@@ -99,7 +99,15 @@ main{
     /* overflow: hidden;
     text-overflow: ellipsis; */
 }
-
+#main-timetable td > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 98%;
+    height: 100%;
+    overflow: hidden;
+    padding: 2px;
+}
 .delete-button {
     position: absolute;
     top: 50%;
