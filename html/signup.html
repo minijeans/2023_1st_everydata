@@ -18,7 +18,7 @@
         <div class="signup-wrapper">
             <h2>SIGN UP</h2>
             <div>*은 필수항목입니다.</div>
-            <form method="post" id="signup-form" action="/submit" enctype="multipart/form-data">
+            <form method="post" id="signup-form" action="../php/signUp.php" enctype="multipart/form-data">
                 <div><span>*</span>아이디</div>
                 <input type="text" id="id" onchange="id_inputcheck()" placeholder="아이디 입력(6~20자)" maxlength="20">
                 <span class="input-check" id="id-checktext"></span>
@@ -26,7 +26,7 @@
                 <input type="password" id="password" onchange="password_inputcheck()" placeholder="비밀번호 입력(8~20자)" maxlength="20">
                 <span class="input-check" id="password-checktext"></span>
                 <div><span>*</span>비밀번호 확인</div>
-                <input type="password" id="repassword" onchange="repassword_inputcheck()" placeholder="비밀번호 재입력" maxlength="20">
+                <input type="password" id="repassword" onblur="repassword_inputcheck()" placeholder="비밀번호 재입력" maxlength="20">
                 <span class="input-check" id="repassword-checktext"></span>
                 <div><span>*</span>이름</div>
                 <input type="text" id="name" onchange="name_inputcheck()" placeholder="이름">
@@ -38,7 +38,7 @@
                     <div>
                         <div><span>*</span>상태</div>
                         <select id="academic_status" onblur="select_inputcheck('academic_status', 'academic_status-checktext')">
-                            <option selected disabled>선택</option>
+                            <option value="선택" selected disabled>선택</option>
                             <option value="재학">재학</option>
                             <option value="휴학">휴학</option>
                         </select>
@@ -47,7 +47,7 @@
                     <div>
                         <div><span>*</span>교과적용년도</div>
                         <select id="curriculum_year" onblur="select_inputcheck('curriculum_year', 'curriculum_year-checktext')">
-                            <option selected disabled>선택</option>
+                            <option value="선택" selected disabled>선택</option>
                             <option value="2023">2023</option>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
@@ -63,7 +63,7 @@
                     <div>
                         <div><span>*</span>학년</div>
                         <select id="grade" onblur="select_inputcheck('grade', 'grade-checktext')">
-                            <option selected disabled>선택</option>
+                            <option value="선택" selected disabled>선택</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -74,7 +74,7 @@
                 </div>
                 <div><span>*</span>학과</div>
                 <select id="major" onblur="select_inputcheck('major', 'major-checktext')">
-                    <option selected disabled>선택</option>
+                    <option value="선택" selected disabled>선택</option>
                     <option value="생명과학부">생명과학부</option>
                     <option value="물리학과">물리학과</option>
                     <option value="수학과">수학과</option>

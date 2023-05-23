@@ -123,17 +123,17 @@ const student_id_inputcheck = () => {
 const select_inputcheck = (inputId, checktextId) => {
     const select = document.getElementById(inputId);
     const checktext = document.getElementById(checktextId);
-  
     if (select.value === "선택") {
-        //선택하지 않은 경우
+        // 선택하지 않은 경우
         select.style.borderColor = "red";
         checktext.style.color = "red";
         checktext.innerHTML = "선택해주세요.";
         return false;
     } else {
-        //선택한 경우
+        // 선택한 경우
         select.style.borderColor = "";
         checktext.innerHTML = "";
+        console.log(inputId);
         return true;
     }
 };
@@ -191,7 +191,19 @@ const validateForm = () => {
         //학번 유효성 검사 실패
         return false;
     }
-    if (!select_inputcheck()){
+    if (!select_inputcheck('academic_status', 'academic_status-checktext')){
+        //선택 항목 미입력
+        return false;
+    }
+    if (!select_inputcheck('curriculum_year', 'curriculum_year-checktext')){
+        //선택 항목 미입력
+        return false;
+    }
+    if (!select_inputcheck('grade', 'grade-checktext')){
+        //선택 항목 미입력
+        return false;
+    }
+    if (!select_inputcheck('major', 'major-checktext')){
         //선택 항목 미입력
         return false;
     }
@@ -200,6 +212,7 @@ const validateForm = () => {
         return false;
     }
     //모든 입력이 유효한 경우
+    console.log("모든 입력 유효");
     return true;
 };
 
